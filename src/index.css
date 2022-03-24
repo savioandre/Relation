@@ -1,13 +1,505 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  /* Colors */
+  --pri: #382F70;
+  --bac: #f1f1f1;
+  --txt: #221E36;
+  --mod: rgba(0, 0, 0, 0.70);
+
+  /* Ligth Theme */
+  --opt: #E2E1EB;
+
+  /* Fonts */
+  --Roboto: 'Roboto', sans-serif;
+  --txt_basic: 400;
+  --txt_title: 700;
+  --txt_basic_f: 1.4rem;
+  --txt_med_f: 1.6rem;
+  --txt_title_f: 1.8rem;
+
+  /* Utils */
+  --r_top: 5px 5px 0px 0px;
+  --r_bot: 0px 0px 5px 5px;
+  --shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+  --pad: 8px;
+}
+[data-theme="dark"] {
+  --bac: #131021;
+  --opt: #221E36;
+  --txt: #f1f1f1;
+  --mod: rgba(54, 54, 54, 0.70);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bac);
+  font-family: var(--Roboto);
+}
+
+button {
+  border: none;
+  padding: var(--pad);
+  background: var(--pri);
+}
+
+#head {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 12px;
+  background: var(--pri);
+  text-align: center;
+}
+
+.head, ._head, .pass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.layout {
+  min-width: 1040px;
+  height: 100%;
+  background: var(--bac);
+}
+
+#main_acts {
+  display: grid;
+  gap: 8px;
+  padding: 8px 8px 0;
+}
+
+._head {
+  background: var(--pri);
+  color: var(--txt);
+  border-radius: var(--r_top);
+  padding: var(--pad);
+  box-shadow: var(--shadow);
+}
+
+._main {
+  background: var(--bac);
+  padding: var(--pad);
+  border-radius: var(--r_bot);
+}
+
+.txt_bas {
+  color: #f1f1f1;
+  font-weight: var(--txt_basic);
+  font-size: var(--txt_basic_f);
+}
+
+.view {
+  background: var(--opt);
+  padding: 12px 8px;
+  border-radius: 5px;
+}
+
+h1, .info {
+  color: var(--txt);
+}
+
+.txt_title {
+  color: var(--txt);
+  font-weight: var(--txt_title);
+  font-size: var(--txt_title_f);
+}
+
+.txt_man {
+  margin-right: 8px;
+  font-size: var(--txt_basic_f);
+  font-weight: var(--txt_title);
+  color: var(--txt);
+}
+
+/* Componets Css */
+.header {
+  background: var(--pri);
+  padding: 8px;
+  text-align: center;
+}
+
+.inp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--pad);
+}
+
+.txt_main {
+  color: var(--txt);
+  font-weight: var(--txt_basic_f);
+  font-size: var(--txt_title_f);
+}
+
+.s_in {
+  padding: var(--pad);
+  background: var(--opt);
+  border: none;
+  border-radius: 5px;
+  /* text-align: end; */
+  width: unset;
+  outline: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  /* background: var(--pri); */
+  padding: var(--pad);
+  border-radius: 5px;
+  place-self: end;
+}
+
+._act {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  color: #f1f1f1;
+}
+/* Modais */
+.mods {
+  display: flex; 
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.mod_out {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  background: var(--mod);
+}
+
+.cookies {
+  padding: var(--pad);
+  background: var(--opt);
+  border-radius: 5px;
+  position: fixed;
+  bottom: 24px;
+  z-index: 100;
+
+  max-width: 600px;
+}
+
+.btn_cookie {
+  padding: var(--pad);
+  /* background: var(--pri); */
+  border-radius: 5px;
+}
+
+.mod {
+  max-width: 400px;
+  width: 100%;
+  z-index: 10;
+}
+
+.txt_btn {
+  color: #f1f1f1;
+  font-weight: var(--txt_basic_f);
+  font-size: var(--txt_title_f);
+  margin: 0 8px 0 0;
+}
+
+.txt_logo {
+  color: #f1f1f1;
+  font-weight: var(--txt_title);
+  font-size: var(--txt_title_f);
+}
+
+._dark_span {
+  padding: 4px;
+  border-radius: 5px;
+  background: var(--pri);
+  color: #f1f1f1;
+}
+
+#dark_mode, #mod_pref {
+  opacity: 0;
+  appearance: none;
+}
+
+.main_activity {
+  display: grid;
+  grid: repeat(2, auto) / auto-flow auto;
+}
+
+.act {
+  color: var(--txt);
+  font-size: var(--txt_basic_f);
+  font-weight: var(--txt_basic);
+  padding: var(--pad) var(--pad) var(--pad) 0;
+}
+
+.name {
+  position: fixed;
+  top: 24px;
+  padding: var(--pad);
+  background: var(--bac);
+  border-radius: 5px;
+  animation: animationUp 1s ease-in;
+  z-index: 100;
+  min-width: 400px;
+}
+
+#l_name {
+  font-size: var(--txt_med_f);
+  font-weight: var(--txt_title);
+  color: var(--txt);
+}
+
+.name, .getName, .getImage, .getManager {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--pad);
+}
+
+.btn_name {
+  border-radius: 5px;
+  color: #f1f1f1;
+}
+
+#name {
+  padding: var(--pad);
+  border: none;
+  background: var(--opt);
+  color: var(--txt);
+  border-radius: 5px;
+  outline: none;
+}
+
+.pass {
+  padding: var(--pad) 0;
+  margin: 8px 0 0;
+}
+
+.view_pass {
+  display: grid;
+  align-items: flex-end;
+  justify-items: center;
+}
+
+.p_as {
+  padding: 5px;
+  background: var(--opt);
+  color: var(--txt);
+  font-weight: var(--txt_title);
+  text-align: center;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  transition: all 0.5s ease-in-out;
+}
+.ref_name {
+  position: absolute;
+  transform: translate(0px, 16px);
+}
+
+._on {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  background: #a293ff;
+  font-size: var(--txt_title_f);
+  transition: all 0.5s ease-in-out;
+}
+
+.off {
+  opacity: 0;
+  appearance: none;
+  position: absolute;
+}
+
+.getManager > div {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.upload {
+  font-size: var(--txt_med_f);
+  font-weight: 100;
+  color: #7a7a7a;
+}
+
+@keyframes animationUp {
+  0% {
+      top: -10px;
+      opacity: 0;
+  }
+  100% {
+      top: 24px;
+      opacity: 1;
+  }
+}
+/* Switch */
+.theme-toggle, .pref {
+  display: flex;
+  align-items: center;
+  grid-gap: .4rem;
+  gap: .4rem;
+  margin-right: 8px;
+}
+
+.theme-toggle span, .pref span {
+  line-height: 0;
+}
+
+.manager, .switch, ._label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.switch input {
+  opacity: 0;
+  width: 4rem;
+  height: 0;
+  margin: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: var(--bac);
+  transition: .4s;
+  border-radius: 1em;
+  width: 4rem;
+  height: 2rem;
+  align-items: center;
+}
+
+.def_slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: var(--opt);
+  transition: .4s;
+  border-radius: 1em;
+  width: 4rem;
+  height: 2rem;
+  align-items: center;
+}
+
+span.icon svg {
+  fill: var(--bac);
+  stroke: var(--bac);
+}
+
+.switch input:checked+.slider:before, .switch input:checked+.def_slider:before{
+  left: 55.25%;
+  right: 5.25%;
+}
+
+.switch input:checked + .def_slider{
+  background: #a293ff;
+}
+
+span.slider:before, span.def_slider:before {
+  position: absolute;
+  content: "";
+  left: 5.25%;
+  right: 55.25%;
+  top: 10.5%;
+  bottom: 12.5%;
+  background-color: #382f70;
+  transition: .4s;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+/* Switch */
+
+.profile {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+@media (max-width: 1040px) {
+  .layout {
+      min-width: 100%;
+  }
+}
+
+.left_bar {
+  padding: var(--pad);
+  background: var(--opt);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 48px;
+}
+
+.bar {
+  padding: 2px;
+  display: grid;
+  align-content: space-between;
+  height: 100%;
+}
+
+.opt_bar {
+  display: grid;
+  gap: 24px;
+}
+
+.opt_bar li:hover {
+  background: #cccad7;
+}
+
+.btn_burger, div.img {
+  padding: var(--pad);
+}
+
+.active {
+  background: #cccad7;
+}
+
+.opt_bar li {
+  padding: var(--pad);
+  border-radius: 10px;
+  width: 100%;
+}
+
+.el {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.p_el {
+  font-size: var(--txt_basic_f);
+  font-weight: var(--txt_title);
+  color: var(--pri);
+  transition: all 0.2s ease-in;
+}
+
+.on_el {
+  position: absolute;
+  opacity: 0;
+  left: -10px;
+  transition: all 0s ease-in;
+}
+
+p.pro_name {
+  color: var(--pri);
+  font-size: var(--txt_med_f);
 }
