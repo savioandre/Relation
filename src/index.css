@@ -574,6 +574,8 @@ p.pro_name {
 @media (max-width: 500px) {
   main#main_acts {
     position: static;
+    left: 0;
+    width: 100%;
   }
   .left_bar {
     top: auto;
