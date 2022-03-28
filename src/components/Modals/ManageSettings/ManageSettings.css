@@ -1,0 +1,29 @@
+.man_head {
+    position: absolute;
+    padding: 8px;
+    right: 0;
+    border-radius: 5px 0 5px 5px;
+    background: #f1f1f1;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.list_man {
+    display: grid;
+    justify-content: start
+}
+
+.el_man {
+    padding: 8px;
+    gap: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+._more, ._short{
+    padding: 4px;
+    border-radius: 5px;
+    background: #382f70;
+    height: 24px;
+    width: 24px;
+}

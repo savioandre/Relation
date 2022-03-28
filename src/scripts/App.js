@@ -1,9 +1,13 @@
-import React from 'react';
-import ChannelMain from '../components/Modals/ChannelMain/ChannelMain';
+import React, { useEffect } from 'react';
+import Main from '../components/Main/Main';
+import DarkMode from './dark';
 
 const App = () => {
+  useEffect(() => {
+    DarkMode();
+  });
   return (
-    <ChannelMain />
+    <Main />
   )
 }
 

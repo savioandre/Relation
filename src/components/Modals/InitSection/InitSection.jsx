@@ -4,10 +4,9 @@ const InitSection = () => {
 
     useEffect(() => {
         var index = 1;
-        document.querySelector('.btn_name').addEventListener('click', (i) => {
+        document.querySelector('#n_step').addEventListener('click', (i) => {
             const nome = document.querySelector('.name input').value;
 
-            document.querySelector('title').innerText = `Relatório de Serviço de ${nome}`;
             if (nome.length >= 1) {
                 document.querySelector('#name').setAttribute('style', 'border');
                 document.querySelector('span._on').setAttribute('style', 'background');
@@ -21,11 +20,15 @@ const InitSection = () => {
                     p_mod.forEach((i) => {
                         i.children[index].children[0].classList.add('_on');
                     });
-                } else {
-                    document.querySelector('.name').style.display = "none";
-                    document.querySelector('.mods').style.background = "none";
-                    document.querySelector('.mods').setAttribute('style', 'display: none');
+                };
+
+                if (index === 3) {
+                    document.querySelector('#btn_name').removeAttribute('disabled');
+                    document.querySelector('#btn_name').removeAttribute('style');
+                    document.querySelector('#n_step').setAttribute('style', 'opacity: 0.5');
+                    document.querySelector('#n_step').setAttribute('disabled', '');
                 }
+                
             } else {
                 document.querySelector('#name').style.border = "1px solid #ff8d8d";
                 document.querySelector('span._on').style.background = "#ff8d8d";
@@ -62,10 +65,18 @@ const InitSection = () => {
                 </div>
             </div>
 
-            <div className="getName">
-                <label className="_label">
-                    <p id="l_name" style={{ marginRight: '8px' }}>Coloque seu nome: </p>
+            <div className="getName" style={{ width: '100%' }}>
+                <label className="_label" style={{ marginBottom: '8px' }}>
+                    <p id="l_name">Coloque seu nome: </p>
                     <input type="text" name="name" id="name" placeholder="Nome" />
+                </label>
+                <label className="_label">
+                    <p id="l_name">Sua designação: </p>
+                    <select className="s_in t_note" style={{ width: '174px' }}>
+                        <option value="Publicador">Publicador</option>
+                        <option value="Pioneiro Auxiliar">Pioneiro Auxiliar</option>
+                        <option value="Pioneiro Regular">Pioneiro Regular</option>
+                    </select>
                 </label>
             </div>
 
@@ -118,16 +129,16 @@ const InitSection = () => {
             </div>
 
             <div className="conf" style={{ marginTop: '8px', width: '100%' }}>
-                <button type="button" className="btn_name">Próximo</button>
-                <div className="_label" style={{ display: 'none' }}>
-                    <p style={{ placeSelf: 'flex-end', textAlign: 'end', padding: '2px 0' }}>Pular</p>
+                <button className="_label" id='n_step'>
+                    <p className="p_n_step">Próximo</p>
                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-chevron-right"
                         width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none"
                         strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <polyline points="9 6 15 12 9 18"></polyline>
                     </svg>
-                </div>
+                </button>
+                <button type="button" className="btn_name" id='btn_name' disabled style={{ opacity: 0.5 }}>Salvar</button>
             </div>
         </div>
     )

@@ -5,5 +5,5 @@ import App from './scripts/App';
 
 ReactDOM.render(
   <App />,
-  document.getElementById('modais')
+  document.getElementById('root')
 );

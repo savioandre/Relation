@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import CreateActivity from '../CreateActivity/CreateActivity.jsx';
 import InitSection from '../InitSection/InitSection.jsx';
 import Cookies from '../Cookies/Cookies';
+import createFile from '../../../scripts/createFile';
 
 const ChannelMain = () => {
     useEffect(() => {
@@ -87,6 +88,8 @@ const ChannelMain = () => {
         document.querySelector('.mod_out').addEventListener('click', () => {
             document.querySelector('.mods').style.display = 'none';
         })
+
+        createFile();
     })
     return (
         <div className="mods" style={{ position: 'absolute', width: '100%', height: '100%', background: `var(--mod)`, zIndex: 9}}>
