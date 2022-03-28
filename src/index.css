@@ -575,7 +575,6 @@ p.pro_name {
   main#main_acts {
     position: static;
     left: 0;
-    width: 100%;
   }
   .left_bar {
     top: auto;
@@ -595,5 +594,8 @@ p.pro_name {
   ._act {
     right: 10px;
     bottom: 80px;
+  }
+  .head_t .txt_logo {
+    display: none;
   }
 }

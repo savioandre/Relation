@@ -16,7 +16,7 @@ const Main = () => {
                     style={{ display: 'none', position: 'absolute', width: '100%', height: '100%', background: 'rgba(0, 0, 0, 0.5)', top: 0, right: 0 }}>
                 </div>
 
-                <main id="main_acts" style={{ position: 'absolute', left: '64px', right: 0, padding: '8px 8px 0', zIndex: -1 }}></main>
+                <main id="main_acts" style={{ position: 'absolute', right: 0, padding: '8px 8px 0', zIndex: -1 }}></main>
 
                 <div className="btns">
                     <button className="btn _act">+ Adicionar atividade</button>

@@ -50,7 +50,8 @@ function getData() {
                 <p class="act">${data.note}</p>
             </div>
         </div>
-    </div>`;
+    </div>
+    `;
 
         const localMain = document.createElement('div');
         const localActivities = document.createElement('div');
@@ -65,6 +66,8 @@ function getData() {
         document.querySelector('main#main_acts').appendChild(localMain);
 
     }
+
+    document.querySelector('#msg').setAttribute('style', 'display: none');
 
     data.type = '';
     data.hours = '';
