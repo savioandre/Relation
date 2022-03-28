@@ -8,6 +8,7 @@ function DarkMode() {
 
         if (currentTheme === "dark") {
             themeToggle.checked = true;
+            document.querySelector('#dark_mode').setAttribute('checked', 'true');
         }
     }
 

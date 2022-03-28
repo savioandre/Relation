@@ -282,7 +282,6 @@ form {
 .name {
   position: fixed;
   top: 24px;
-  padding: var(--pad);
   background: var(--bac);
   border-radius: 5px;
   animation: animationUp 1s ease-in;
@@ -561,4 +560,38 @@ span.slider:before, span.def_slider:before {
 p.pro_name {
   color: var(--pri);
   font-size: var(--txt_med_f);
+}
+
+@media (max-width: 400px) {
+  .mods {
+    padding: 8px;
+  }
+  .name {
+    min-width: calc(100vw - 10px);
+  }
+}
+
+@media (max-width: 500px) {
+  main#main_acts {
+    position: static;
+  }
+  .left_bar {
+    top: auto;
+    bottom: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  .btn_open_bar {
+    display: none;
+  }
+  ul.bar, .opt_bar {
+    display: flex;
+    justify-content: space-between;
+    align-content: normal;
+    width: 100%;
+  }
+  ._act {
+    right: 10px;
+    bottom: 80px;
+  }
 }
