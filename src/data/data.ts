@@ -1,6 +1,6 @@
 function getData() {
     let data = {
-        type: (document.querySelector('select') as HTMLSelectElement).value,
+        type: (document.querySelector('main form select') as HTMLSelectElement).value,
         hours: (document.querySelector('#hours') as HTMLInputElement).value,
         publications: (document.querySelector('#publics') as HTMLInputElement).value,
         review: (document.querySelector('#revisits') as HTMLInputElement).value,
