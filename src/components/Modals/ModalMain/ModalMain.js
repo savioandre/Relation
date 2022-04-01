@@ -3,24 +3,27 @@ import CreateActivity from '../CreateActivity/CreateActivity.jsx';
 import InitSection from '../InitSection/InitSection.jsx';
 import Cookies from '../Cookies/Cookies';
 import createFile from '../../../scripts/createFile';
+import RegisterNew from '../../Students/RegisterNew/Register.jsx';
 
-const ChannelMain = () => {
+const ModalMain = () => {
     useEffect(() => {
         document.querySelector('.btn._act').addEventListener('click', () => {
             document.querySelector('.mod.activity').removeAttribute('style');
             document.querySelector('.mod_out').setAttribute('style', 'position: absolute;width: 100%;height: 100%');
             document.querySelector('.mods').setAttribute('style', 'align-items: center');
-        })        
+        });
 
-        const close = document.querySelector('._head span.close')
-        close.addEventListener('click', () => {
-            close.closest('.mods').style.display = "none";
+        const close = document.querySelectorAll('._head span.close')
+        close.forEach((close) => {
+            close.addEventListener('click', () => {
+                close.closest('.mods').style.display = "none";
+            });
         })
 
         document.querySelectorAll('.cookies button, .cookies .head span').forEach((i) => {
-            i.onclick = function cookie() {
+            i.addEventListener('click', () => {
                 document.querySelector('.cookies').style.display = "none";
-            }
+            })
         })
 
         document.querySelectorAll('.it').forEach((i) => {
@@ -78,27 +81,28 @@ const ChannelMain = () => {
 
                 i.classList.remove('on')
             })
-        })
+        });
 
         document.querySelector('.btn').addEventListener('click', (event) => {
             event.preventDefault();
             // console.log(document.querySelector('form').values);
-        })
+        });
 
         document.querySelector('.mod_out').addEventListener('click', () => {
             document.querySelector('.mods').style.display = 'none';
-        })
+        });
 
         createFile();
     })
     return (
-        <div className="mods" style={{ position: 'absolute', width: '100%', height: '100%', background: `var(--mod)`, zIndex: 9}}>
-            <div className="mod_out" style={{ display: 'none', width: '100%', height: '100%'  }}></div>
+        <div className="mods" style={{ position: 'absolute', width: '100%', height: '100%', background: `var(--mod)`, zIndex: 9 }}>
+            <div className="mod_out" style={{ display: 'none', width: '100%', height: '100%' }}></div>
             <Cookies />
             <InitSection />
             <CreateActivity />
+            <RegisterNew />
         </div>
     )
 }
 
-export default ChannelMain;
+export default ModalMain;

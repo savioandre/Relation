@@ -97,6 +97,7 @@ button {
   display: grid;
   gap: 8px;
   padding: 8px 8px 0;
+  left: 64px;
 }
 
 ._head {
@@ -156,7 +157,7 @@ label .txt_title {
 .inp {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   padding: var(--pad);
 }
 
@@ -184,9 +185,27 @@ textarea.txt_main {
   resize: none;
 }
 
+textarea::-webkit-scrollbar {
+  width: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: var(--mod);
+  border-radius: 10px;
+}
+
 form {
   display: flex;
   flex-direction: column;
+}
+
+.head_t a {
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+
+.head_t a:hover {
+  text-decoration: underline;
 }
 
 .btn {
@@ -524,6 +543,7 @@ span.slider:before, span.def_slider:before {
   align-items: center;
   gap: 16px;
   cursor: pointer;
+  transition: all .2s ease;
 }
 
 .note {
@@ -552,9 +572,13 @@ span.slider:before, span.def_slider:before {
   transition:  0s ease-in;
 }
 
-.profile_ {
+.profile_, .l_in {
   display: flex;
   align-items: center;
+}
+
+#register_new input::placeholder {
+  font-size: 1.4rem;
 }
 
 p.pro_name {

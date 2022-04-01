@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Main from '../components/Main/Main';
+import Main from '../components/Channel_Main/Main';
 import DarkMode from './dark';
 
 const App = () => {

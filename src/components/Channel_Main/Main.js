@@ -1,5 +1,5 @@
 import React from 'react';
-import ChannelMain from '../Modals/ChannelMain/ChannelMain';
+import ChannelMain from '../Modals/ModalMain/ModalMain';
 import LeftBar from '../LeftBar/LeftBar';
 import Header from '../Header/Header';
 

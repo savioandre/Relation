@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Cookies = () => {
+const Cookies = () => {    
     return (
-        <div className="cookies" style={{ display: "none" }}>
+        <div className="cookies">
             <div className="head">
                 <h1>Sua Privacidade 🍪</h1>
                 <span>
@@ -20,7 +20,7 @@ const Cookies = () => {
                 concorda com o uso de cookies em nosso site.
             </p>
             <div className="conc" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <a href="https://www.allaboutcookies.org/privacy-policy.htm" target="_blank"
+                <a href="https://www.allaboutcookies.org/privacy-policy.htm" target='_blank' rel='noreferrer'
                     style={{ color: `var(--pri)` }}>Ler mais</a>
                 <button type="button" className="btn_cookie" style={{ color: '#f1f1f1' }}>Aceitar</button>
             </div>

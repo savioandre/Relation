@@ -29,7 +29,10 @@ const Header = () => {
                             fill="#E2E1EB"></path>
                     </svg>
                 </span>
-                <p className="txt_logo">Relation App</p>
+                <div style={{position: 'absolute', margin: '0 0 0 28px', textAlign: 'left', userSelect: 'none'}}>
+                    <p className="txt_logo">Relation App</p>
+                    <a href='https://github.com/savioandre/Relation' style= {{fontSize: '1rem', display: 'block', color: 'var(--opt)', fontWeight: 700}} target='_blank' rel='noreferrer'>Version beta 1.0</a>
+                </div>
             </div>
             <div className="head_t">
                 <label id="sel_">

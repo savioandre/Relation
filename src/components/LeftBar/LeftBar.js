@@ -53,10 +53,14 @@ const LeftBar = () => {
             document.querySelector('.profile_').appendChild(localInner);
 
             document.querySelector('title').innerText = `Relatório de Serviço de ${name}`;
-            document.querySelector('.name').style.display = "none";
-            document.querySelector('.mods').style.background = "none";
-            document.querySelector('.mods').setAttribute('style', 'display: none');
         })
+
+        document.querySelectorAll('li.el').forEach((el) => {
+            el.addEventListener('click', () => {
+                document.querySelector('li.el.active').classList.remove('active');
+                el.classList.add('active');
+            });
+        });
     });
 
     return (

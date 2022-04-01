@@ -12,8 +12,9 @@ function createFile() {
             const para = document.createElement('p');
             para.textContent = 'No files currently selected for upload';
             preview.appendChild(para);
-            document.querySelector('.btn_name').setAttribute('disabled', 'disabled');
+            document.querySelector('#n_step').setAttribute('disabled', 'disabled');
         } else {
+            document.querySelector('#n_step').removeAttribute('disabled');
             const list = document.createElement('ol');
             preview.appendChild(list);
 

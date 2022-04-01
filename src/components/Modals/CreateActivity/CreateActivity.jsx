@@ -26,7 +26,7 @@ const CreateActivity = () => {
                         </select>
                     </label>
 
-                    <label htmlFor='hours' className='inp' id='hour'>
+                    <label htmlFor='hours' className='inp'>
                         <p className='txt_title'>Horas</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <p className='s_in txt_main' aria-placeholder='00:00'>00:00</p>

@@ -1,0 +1,57 @@
+.calendar {
+    padding: 4px;
+    border-radius: 5px;
+    background: rgba(95, 94, 100, 0.431);
+    position: absolute;
+    transform: translateY(24px);
+    animation: see 1s ease;
+}
+
+@keyframes see {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(24px);
+
+    }
+}
+
+tbody {
+    display: grid;
+    gap: 4px;
+}
+
+tr {
+    display: flex;
+    gap: 4px;
+}
+
+td {
+    border-radius: 20px;
+    color: var(--txt);
+    background: var(--opt);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+td input {
+    appearance: none;
+    position: absolute;
+    z-index: -1;
+}
+
+td label {
+    font-weight: var(--txt_title);
+}
+
+.td_on {
+    background: var(--pri); 
+    color: var(--opt);
+}
