@@ -13,15 +13,17 @@ const InitSection = () => {
                 document.querySelector('#name').setAttribute('style', 'border');
                 document.querySelector('span._on').setAttribute('style', 'background');
                 document.querySelector('span._on').classList.remove('_on');
-                document.querySelector('.getName').classList.add('off');
-                document.querySelector('.getImage').classList.remove('off');
+                // document.querySelector('.getName').classList.add('off');
                 index += 1;
 
                 if (index <= 3) {
                     const p_mod = document.querySelectorAll('.pass');
                     p_mod.forEach((i) => {
-                        i.children[index].children[0].classList.add('_on');
+                        i.children[index].children[0].children[0].classList.add('_on');
                     });
+                    const form_mod = document.querySelector('form.name');
+                    form_mod.children[index - 1].classList.add('off');
+                    form_mod.children[index].classList.remove('off');
                 };
 
                 if (index === 3) {
@@ -36,11 +38,11 @@ const InitSection = () => {
                 document.querySelector('span._on').style.background = '#ff8d8d';
             }
 
-        })
+        });
 
         document.querySelector('.date svg').addEventListener('click', () => {
             document.querySelector('.calendar').setAttribute('style', 'display: grid');
-        })
+        });
 
         alertTime();
     })
@@ -52,23 +54,28 @@ const InitSection = () => {
                 <span className='deg' style={{ color: `var(--txt)` }}>Dê os seguintes passos para configurar seu acesso:</span>
 
                 <div className='pass' style={{ height: '75px' }}>
-                    <div style={{ position: 'absolute', zIndex: -1, lineHeight: 0 }}>
-                        <svg width='220' height='2' viewBox='0 0 220 2' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <div style={{ position: 'absolute', zIndex: -1, lineHeight: 0, height: '26px', width: '231px' }}>
+                        <svg width='180' height='2' viewBox='0 0 180 2' fill='none' xmlns='http://www.w3.org/2000/svg'>
                             <path d='M0 1H220' stroke='#382F70' />
                         </svg>
                     </div>
-
-                    <div className='view_pass'>
-                        <span className='p_as _on'>1</span>
-                        <span className='ref_name'>Nome</span>
+                    <div className='deg_opt'>
+                        <div className='view_pass' id='v_o'>
+                            <span className='p_as _on'>1</span>
+                        </div>
+                        <span className='ref_name'>Perfil</span>
                     </div>
-                    <div className='view_pass'>
-                        <span className='p_as'>2</span>
+                    <div className='deg_opt'>
+                        <div className='view_pass' id='v_w'>
+                            <span className='p_as'>2</span>
+                        </div>
                         <span className='ref_name'>Foto</span>
                     </div>
-                    <div className='view_pass'>
-                        <span className='p_as'>3</span>
-                        <span className='ref_name'>Preferências</span>
+                    <div className='deg_opt'>
+                        <div className='view_pass' id='v_t'>
+                            <span className='p_as'>3</span>
+                        </div>
+                        <span className='ref_name'>Alertas</span>
                     </div>
                 </div>
             </div>
@@ -125,14 +132,14 @@ const InitSection = () => {
                     <p className='txt_man'>Avisar envio do relatório</p>
                     <div className='pref'>
                         <label className='switch' htmlFor='mod_pref'>
-                            <input type='checkbox' name='mod_pref' id='mod_pref' defaultChecked/>
+                            <input type='checkbox' name='mod_pref' id='mod_pref' defaultChecked />
                             <span className='def_slider'></span>
                         </label>
                     </div>
                 </div>
                 <div className='_label' id='data'>
                     <p className='txt_man'>Data para enviar relatório</p>
-                    <div className='date' style={{display: 'flex', flexDirection: 'row-reverse'}}>
+                    <div className='date' style={{ display: 'flex', flexDirection: 'row-reverse' }}>
                         <svg xmlns='http://www.w3.org/2000/svg' className='icon icon-tabler icon-tabler-calendar-event' width='24' height='24' viewBox='0 0 24 24' strokeWidth='2' stroke='var(--pri)' fill='none' strokeLinecap='round' strokeLinejoin='round'>
                             <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
                             <rect x='4' y='5' width='16' height='16' rx='2'></rect>
@@ -141,7 +148,7 @@ const InitSection = () => {
                             <line x1='4' y1='11' x2='20' y2='11'></line>
                             <rect x='8' y='15' width='2' height='2'></rect>
                         </svg>
-                        <div className='calendar' style={{display: 'none'}}>
+                        <div className='calendar' style={{ display: 'none' }}>
                             <table>
                                 <tbody>
                                     <tr className='t_col _o'>

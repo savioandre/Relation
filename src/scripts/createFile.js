@@ -27,8 +27,6 @@ function createFile() {
                     account.removeChild(account.children[0]);
                     account.appendChild(image);
                     document.querySelector('#n_step').click();
-                    document.querySelector('.getImage').classList.add('off');
-                    document.querySelector('.getManager').classList.remove('off');
                 }
             }
         }

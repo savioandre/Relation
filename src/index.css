@@ -133,7 +133,7 @@ h1, .info {
 .txt_title {
   color: var(--txt);
   font-weight: var(--txt_title);
-  font-size: var(--txt_title_f);
+  font-size: var(--txt_med_f);
 }
 
 label .txt_title {
@@ -164,7 +164,7 @@ label .txt_title {
 .txt_main {
   color: var(--txt);
   font-weight: var(--txt_basic);
-  font-size: var(--txt_title_f);
+  font-size: var(--txt_med_f);
 }
 
 .s_in {
@@ -314,6 +314,12 @@ form {
   color: var(--txt);
 }
 
+/* .txt_med {
+  font-size: var(--txt_med_f);
+  font-weight: var(--txt_title);
+  color: var(--txt);
+} */
+
 .name, .getName, .getImage, .getManager {
   display: flex;
   flex-direction: column;
@@ -359,8 +365,9 @@ form {
 }
 .ref_name {
   color: var(--txt);
-  position: absolute;
-  transform: translate(0px, 16px);
+  /* position: absolute; */
+  /* transform: translate(0px, 16px); */
+  margin-top: 8px;
 }
 
 ._on {
@@ -375,7 +382,10 @@ form {
 .off {
   opacity: 0;
   appearance: none;
-  position: absolute;
+  position: fixed;
+  user-select: none;
+  z-index: -1;
+  top: -81px;
 }
 
 .getManager > div {
