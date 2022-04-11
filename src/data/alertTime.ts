@@ -10,9 +10,7 @@ function alertTime() {
                 i.parentElement.classList.add('td_on');
                 // const storage = window.localStorage.getItem(day);
             };
-
         });
-
     });
 
     btnSubmmit.addEventListener('click', (e) => {
@@ -22,8 +20,17 @@ function alertTime() {
         document.querySelector('.mods').setAttribute('style', 'display: none');
 
         const date = new Date().getDate().toString();
-
         const notify = document.querySelector('#mod_pref');
+
+        const totalExportData = {
+            name: (document.querySelector('#name') as HTMLInputElement).value,
+            select: (document.querySelector('select.s_in') as HTMLSelectElement).value,
+        }
+        const name = totalExportData.name;
+        const select = totalExportData.select;
+
+        JSON.stringify(localStorage.setItem('name', name));
+        JSON.stringify(localStorage.setItem('select', select));
 
         // Formating Date to show in notification
         if ((notify as HTMLInputElement).checked === true) {
@@ -64,6 +71,5 @@ function alertTime() {
         }
     });
 }
-
 
 export default alertTime;

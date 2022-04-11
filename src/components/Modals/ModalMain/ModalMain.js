@@ -4,6 +4,7 @@ import InitSection from '../InitSection/InitSection.jsx';
 import Cookies from '../Cookies/Cookies';
 import createFile from '../../../scripts/createFile';
 import RegisterNew from '../../Students/RegisterNew/Register.jsx';
+import CreateProfile from '../CreateProfile/CreateProfile.jsx';
 
 const ModalMain = () => {
     useEffect(() => {
@@ -51,7 +52,7 @@ const ModalMain = () => {
                 });
 
                 document.querySelector('label#hour').addEventListener('keyup', (e) => {
-                    const val = document.querySelector('#hour input').value;
+                    const val = document.querySelector('#hours').value;
                     const format = val.slice(0, 2) + ":" + val.slice(2, 10);
                     const format0 = "0" + val.slice(0, 1) + ":" + val.slice(1, 10);
                     if (val.length === 3) {
@@ -63,29 +64,19 @@ const ModalMain = () => {
                     const k = e.key
                     if (k === 'Enter') {
                         e.preventDefault();
-                        input.forEach((a) => { a.style.opacity = 0 })
-                    }
-                })
+                        input.forEach((a) => { a.style.opacity = 0 });
+                    };
+                });
 
-                // document.body.addEventListener('click', () => {
-                // document.querySelectorAll('input.s_in').forEach((i) => {
-                //     if (i.style.opacity = 1) {
-                //         console.log('aqui 1')
-                //         i.style.opacity = 0;
-                //     } else {
-                //         console.log('aqui 2')
-                //         i.style.opacity = 1;
-                //     }
-                // })
-                // })
-
-                i.classList.remove('on')
+                i.classList.remove('on');
             })
         });
 
-        document.querySelector('.btn').addEventListener('click', (event) => {
-            event.preventDefault();
-            // console.log(document.querySelector('form').values);
+        const btn = document.querySelectorAll('form')
+        btn.forEach((btn) => {
+            btn.addEventListener('submit', (event) => {
+                event.preventDefault();
+            });
         });
 
         document.querySelector('.mod_out').addEventListener('click', () => {
@@ -101,6 +92,7 @@ const ModalMain = () => {
             <InitSection />
             <CreateActivity />
             <RegisterNew />
+            <CreateProfile />
         </div>
     )
 }

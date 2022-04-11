@@ -3,7 +3,6 @@ import alertTime from '../../../data/alertTime.ts';
 import './InitSection.css';
 
 const InitSection = () => {
-
     useEffect(() => {
         var index = 1;
         document.querySelector('#n_step').addEventListener('click', (i) => {
@@ -13,7 +12,6 @@ const InitSection = () => {
                 document.querySelector('#name').setAttribute('style', 'border');
                 document.querySelector('span._on').setAttribute('style', 'background');
                 document.querySelector('span._on').classList.remove('_on');
-                // document.querySelector('.getName').classList.add('off');
                 index += 1;
 
                 if (index <= 3) {
@@ -45,6 +43,7 @@ const InitSection = () => {
         });
 
         alertTime();
+
     })
 
     return (

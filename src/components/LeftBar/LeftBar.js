@@ -34,13 +34,13 @@ const LeftBar = () => {
             });
         }
 
-        document.querySelector('#btn_name').addEventListener('click', () => {
-            const name = document.querySelector('#name').value;
-            const designation = document.querySelector('select.t_note').value;
-            const localInner = document.createElement('p');
+        if (localStorage.length > 1) {
+            const name = localStorage.getItem('name');
+            const designation = localStorage.getItem('select');
+            const localInner = document.createElement('div');
             const localName = document.createElement('p');
             const localDesignation = document.createElement('p');
-            localName.classList.add('pro_name');
+            localName.classList.add('txt_main');
             localName.classList.add('on_el');
             localDesignation.classList.add('t_note');
             localDesignation.classList.add('on_el');
@@ -51,9 +51,7 @@ const LeftBar = () => {
             localInner.appendChild(localName);
             localInner.appendChild(localDesignation);
             document.querySelector('.profile_').appendChild(localInner);
-
-            document.querySelector('title').innerText = `Relatório de Serviço de ${name}`;
-        })
+        };
 
         document.querySelectorAll('li.el').forEach((el) => {
             el.addEventListener('click', () => {

@@ -9,8 +9,7 @@ function getData() {
         note: (document.querySelector('#note') as HTMLTextAreaElement).value,
     };
 
-    if (
-        data.hours.length === 0 &&
+    if (data.hours.length === 0 &&
         data.publications.length === 0 &&
         data.review.length === 0 &&
         data.videos.length === 0 &&
@@ -63,11 +62,15 @@ function getData() {
         view.innerHTML = body;
         localActivities.appendChild(view);
         localMain.appendChild(localActivities);
-        document.querySelector('main#main_acts').appendChild(localMain);
-
+        document.querySelector('#activities').appendChild(localMain);
+        document.querySelector('#activities').removeAttribute('style');
+        (document.querySelector('#activities').lastChild as HTMLDivElement).setAttribute('style', 'margin-top: 8px');
     }
 
-    document.querySelector('#msg').setAttribute('style', 'display: none');
+    const main = document.querySelector('main');
+    if (main.childElementCount > 0) {
+        (document.querySelector('.msg') as HTMLElement).style.display = 'none';
+    } else (document.querySelector('.msg') as HTMLElement).style.display = 'block';
 
     data.type = '';
     data.hours = '';

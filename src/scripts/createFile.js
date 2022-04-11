@@ -23,7 +23,7 @@ function createFile() {
                     const image = document.createElement('img');
                     image.src = URL.createObjectURL(file);
                     image.classList.add('profile');
-                    const account = document.querySelector('.account');
+                    const account = document.querySelector('.account.img');
                     account.removeChild(account.children[0]);
                     account.appendChild(image);
                     document.querySelector('#n_step').click();
