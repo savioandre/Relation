@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ChannelMain from '../Modals/ModalMain/ModalMain';
 import LeftBar from '../LeftBar/LeftBar';
 import Header from '../Header/Header';
+import '../Modals/InitSection/ImgProfile.css';
 
 const Main = () => {
     useEffect(() => {
@@ -13,7 +14,16 @@ const Main = () => {
             document.querySelector('form.name').setAttribute('style', 'display: none');
             document.querySelector('.mods').setAttribute('style', 'display: none');
             document.querySelector('.cookies').remove();
-        }
+
+            const avatar = document.createElement('span');
+            const account = document.querySelector('.account.img');
+            avatar.classList.add('avatar');
+            avatar.classList.add('p_sel_pro');
+            avatar.setAttribute('id', localStorage.getItem('avatar'));
+            avatar.innerText = name.substr(0, 2).toUpperCase();
+            account.removeChild(account.children[0]);
+            account.appendChild(avatar);
+        };
     })
 
     return (

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import getData from '../../../data/data.ts';
 
 const CreateActivity = () => {
@@ -30,7 +30,7 @@ const CreateActivity = () => {
                         <p className='txt_title'>Horas</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <p className='s_in txt_main' aria-placeholder='00:00'>00:00</p>
-                            <input type='text' className='s_in txt_main' name='hours' id='hours' maxLength='4'
+                            <input type='number' className='s_in txt_main' name='hours' id='hours' maxLength='4'
                                 placeholder='00:00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
                         </div>
                     </label>
@@ -39,7 +39,7 @@ const CreateActivity = () => {
                         <p className='txt_title'>Publicações</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <p className='s_in txt_main' aria-placeholder='00'>00</p>
-                            <input type='text' className='s_in txt_main' name='publics' id='publics' maxLength='3'
+                            <input type='number' className='s_in txt_main' name='publics' id='publics' maxLength='3'
                                 placeholder='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
                         </div>
 
@@ -49,7 +49,7 @@ const CreateActivity = () => {
                         <p className='txt_title'>Revisitas</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <p className='s_in txt_main' aria-placeholder='00'>00</p>
-                            <input type='text' className='s_in txt_main' name='revisits' id='revisits' maxLength='3'
+                            <input type='number' className='s_in txt_main' name='revisits' id='revisits' maxLength='3'
                                 placeholder='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
                         </div>
 
@@ -59,7 +59,7 @@ const CreateActivity = () => {
                         <p className='txt_title'>Vídeos</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <p className='s_in txt_main' aria-placeholder='00'>00</p>
-                            <input type='text' className='s_in txt_main' name='videos' id='videos' maxLength='3'
+                            <input type='number' className='s_in txt_main' name='videos' id='videos' maxLength='3'
                                 placeholder='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
                         </div>
 
@@ -69,7 +69,7 @@ const CreateActivity = () => {
                         <p className='txt_title'>Estudos</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <p className='s_in txt_main' aria-placeholder='00'>00</p>
-                            <input type='text' className='s_in txt_main' name='study' id='study' maxLength='3'
+                            <input type='number' className='s_in txt_main' name='study' id='study' maxLength='3'
                                 placeholder='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
                         </div>
 

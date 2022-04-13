@@ -208,6 +208,15 @@ form {
   text-decoration: underline;
 }
 
+.head_t span svg {
+  transition: all 1s ease;
+}
+
+.anin {
+  transform: rotate(45deg);
+  transition: all 1s ease;
+}
+
 .btn {
   /* background: var(--pri); */
   padding: var(--pad);
@@ -315,12 +324,6 @@ form {
   color: var(--txt);
 }
 
-/* .txt_med {
-  font-size: var(--txt_med_f);
-  font-weight: var(--txt_title);
-  color: var(--txt);
-} */
-
 .name, .getName, .getImage, .getManager {
   display: flex;
   flex-direction: column;
@@ -395,9 +398,19 @@ form {
 }
 
 .upload {
-  font-size: var(--txt_med_f);
+  font-size: var(--txt_basic_f);
   font-weight: 100;
-  color: #7a7a7a;
+  color: var(--txt);
+  margin: 8px 0;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 
 @keyframes animationUp {
@@ -528,7 +541,7 @@ span.slider:before, span.def_slider:before {
   background: #cccad7;
 }
 
-.btn_burger, div.img {
+.btn_burger{
   padding: var(--pad);
 }
 
@@ -579,6 +592,10 @@ span.slider:before, span.def_slider:before {
 .profile_, .l_in {
   display: flex;
   align-items: center;
+}
+
+.month_act {
+  padding-left: 4px;
 }
 
 .account img {

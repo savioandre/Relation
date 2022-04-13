@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import CreateActivity from '../CreateActivity/CreateActivity.jsx';
 import InitSection from '../InitSection/InitSection.jsx';
 import Cookies from '../Cookies/Cookies';
-import createFile from '../../../scripts/createFile';
+// import createFile from '../../../scripts/createFile';
 import RegisterNew from '../../Students/RegisterNew/Register.jsx';
 import CreateProfile from '../CreateProfile/CreateProfile.jsx';
 
@@ -24,16 +24,15 @@ const ModalMain = () => {
         document.querySelectorAll('.cookies button, .cookies .head span').forEach((i) => {
             i.addEventListener('click', () => {
                 document.querySelector('.cookies').style.display = "none";
-            })
-        })
+            });
+        });
 
-        document.querySelectorAll('.it').forEach((i) => {
-            i.addEventListener('click', () => {
-                i.classList.add('on')
-                const input = document.querySelectorAll('.inp .it.on input')
-                input.forEach((a) => {
-                    a.style.opacity = 1;
-                });
+        let input = document.querySelectorAll('.inp .it.on input');
+
+        document.querySelectorAll('.it').forEach((it) => {
+            it.addEventListener('click', () => {
+                it.classList.add('on');
+                it.children[1].style.opacity = 1;
 
                 document.querySelectorAll('label').forEach((label) => {
                     label.addEventListener('keyup', (e) => {
@@ -60,15 +59,12 @@ const ModalMain = () => {
                     } else document.querySelector('p.s_in').innerHTML = format;
                 });
 
-                document.addEventListener('keyup', (e) => {
-                    const k = e.key
-                    if (k === 'Enter') {
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
                         e.preventDefault();
                         input.forEach((a) => { a.style.opacity = 0 });
                     };
                 });
-
-                i.classList.remove('on');
             })
         });
 
@@ -83,7 +79,7 @@ const ModalMain = () => {
             document.querySelector('.mods').style.display = 'none';
         });
 
-        createFile();
+        // createFile();
     })
     return (
         <div className="mods" style={{ position: 'absolute', width: '100%', height: '100%', background: `var(--mod)`, zIndex: 9 }}>

@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import alertTime from '../../../data/alertTime.ts';
 import './InitSection.css';
+import './ImgProfile.css';
 
 const InitSection = () => {
     useEffect(() => {
         var index = 1;
         document.querySelector('#n_step').addEventListener('click', (i) => {
-            const nome = document.querySelector('.name input').value;
+            var nome = document.querySelector('.name input').value;
+            document.querySelector('.p_sel_pro').innerText = nome.substr(0, 2).toUpperCase();
 
             if (nome.length >= 1) {
                 document.querySelector('#name').setAttribute('style', 'border');
@@ -43,7 +45,6 @@ const InitSection = () => {
         });
 
         alertTime();
-
     })
 
     return (
@@ -95,35 +96,38 @@ const InitSection = () => {
             </div>
 
             <div className='getImage off'>
-                <label className='_label' htmlFor='img'>
+                <div className='sel_user' htmlFor='img'>
                     <div style={{ textAlign: 'center' }}>
-                        <div className='_label'>
-                            <span style={{ marginRight: '8px' }}>
-                                <svg xmlns='http://www.w3.org/2000/svg' className='icon icon-tabler icon-tabler-camera-plus'
-                                    width='24' height='24' viewBox='0 0 24 24' strokeWidth='2' stroke='#7a7a7a'
-                                    fill='none' strokeLinecap='round' strokeLinejoin='round'>
-                                    <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-                                    <circle cx='12' cy='13' r='3'></circle>
-                                    <path
-                                        d='M5 7h2a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h2m9 7v7a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2'>
-                                    </path>
-                                    <line x1='15' y1='6' x2='21' y2='6'></line>
-                                    <line x1='18' y1='3' x2='18' y2='9'></line>
-                                </svg>
+                        <div className='preview'>
+                            <span style={{userSelect: 'none'}}>
+                                <div className="preview_user" id="n_yl">
+                                    <p className="p_sel_pro font_tit"></p>
+                                </div>
                             </span>
                             <span className='upload'>Selecione uma Imagem para o perfil</span>
                         </div>
-                        <div>
-                            <p>Clique ou arraste uma imagem aqui.</p>
-                        </div>
-                    </div>
-                    <div className='preview'>
-                        <p></p>
                     </div>
 
-                    <input type='file' accept='.jpg, .jpeg, .png' id='img' alt='Imagem de Perfil'
-                        style={{ opacity: 0, position: 'absolute' }} multiple />
-                </label>
+                    <div className='choose _label'>
+                        <label className="sel_pro ava_on" style={{ background: 'var(--yl)' }} htmlFor="yl">
+                            <input type="radio" name="choose_r" id="yl" value="yl" defaultChecked="true" />
+                        </label>
+
+                        <label className="sel_pro" style={{ background: 'var(--bl)' }} htmlFor="bl">
+                            <input type="radio" name="choose_r" id="bl" value="bl" />
+                        </label>
+
+                        <label className="sel_pro" style={{ background: 'var(--gn)' }} htmlFor="gn">
+                            <input type="radio" name="choose_r" id="gn" value="gn" />
+                        </label>
+
+                        <label className="sel_pro" style={{ background: 'var(--pk)' }} htmlFor="pk">
+                            <input type="radio" name="choose_r" id="pk" value="pk" />
+                        </label>
+
+                    </div>
+
+                </div>
             </div>
 
             <div className='getManager off' style={{ width: '280px', gap: '8px' }}>
@@ -301,7 +305,7 @@ const InitSection = () => {
                         <polyline points='9 6 15 12 9 18'></polyline>
                     </svg>
                 </button>
-                <button type='submmit' className='btn_name' id='btn_name' disabled style={{ opacity: 0.5 }}>Salvar</button>
+                <button type='submit' className='btn_name' id='btn_name' disabled style={{ opacity: 0.5 }}>Salvar</button>
             </div>
         </form>
     )

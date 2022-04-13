@@ -2,13 +2,29 @@ function alertTime() {
     const btnSubmmit = document.querySelector('#btn_name');
     const radio = document.querySelectorAll('td input');
     var day;
+    var img;
+    const date = new Date().getDate().toString();
     radio.forEach((i) => {
         i.addEventListener('click', () => {
             if ((i as HTMLInputElement).checked === true) {
                 day = i.getAttribute('id');
-                document.querySelector('td.td_on').classList.remove('td_on')
+                document.querySelector('td.td_on').classList.remove('td_on');
                 i.parentElement.classList.add('td_on');
-                // const storage = window.localStorage.getItem(day);
+                localStorage.setItem('day', day);
+            };
+        });
+    });
+
+    const avatar = document.querySelectorAll('.sel_pro input');
+    avatar.forEach((i) => {
+        i.addEventListener('click', () => {
+            if ((i as HTMLInputElement).checked === true) {
+                img = i.getAttribute('value');
+                document.querySelector('.sel_pro.ava_on').classList.remove('ava_on');
+                i.parentElement.classList.add('ava_on');
+                img = `n_${img}`;
+                document.querySelector('.preview_user').setAttribute('id', img);
+                JSON.stringify(localStorage.setItem('avatar', img));
             };
         });
     });
@@ -19,18 +35,26 @@ function alertTime() {
         (document.querySelector('.mods') as HTMLDivElement).style.background = "none";
         document.querySelector('.mods').setAttribute('style', 'display: none');
 
-        const date = new Date().getDate().toString();
         const notify = document.querySelector('#mod_pref');
 
         const totalExportData = {
             name: (document.querySelector('#name') as HTMLInputElement).value,
             select: (document.querySelector('select.s_in') as HTMLSelectElement).value,
-        }
+        };
         const name = totalExportData.name;
         const select = totalExportData.select;
 
         JSON.stringify(localStorage.setItem('name', name));
         JSON.stringify(localStorage.setItem('select', select));
+
+        const avatar = document.createElement('span');
+        const account = document.querySelector('.account.img');
+        avatar.classList.add('avatar');
+        avatar.classList.add('p_sel_pro');
+        avatar.setAttribute('id', localStorage.getItem('avatar'));
+        avatar.innerText = name.substr(0, 2).toUpperCase();
+        account.removeChild(account.children[0]);
+        account.appendChild(avatar);
 
         // Formating Date to show in notification
         if ((notify as HTMLInputElement).checked === true) {
@@ -52,7 +76,7 @@ function alertTime() {
 
             Notification.requestPermission();
 
-            if (date === day) {
+            if (date === localStorage.getItem('day')) {
                 var notification = new Notification("🔔 Lembrete de Relatório", {
                     icon: 'https://github.com/savioandre/Relation/blob/main/public/assets/Time-Circlelogo.png?raw=true',
                     body: `Hoje já é dia ${formatDate()}, dia de entregar o relatório!`
@@ -62,7 +86,7 @@ function alertTime() {
                 };
             } else {
                 console.log('date 1');
-                if (date > day) {
+                if (date > localStorage.getItem('day')) {
                     alert('Faltam ' + (parseInt(date) - parseInt(day)) + ' dias para entregar o relatório');
                 } else {
                     alert('Já passaram ' + (parseInt(day) - parseInt(date)) + ' dias para entregar o relatório');

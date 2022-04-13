@@ -64,21 +64,21 @@ function getData() {
         localMain.appendChild(localActivities);
         document.querySelector('#activities').appendChild(localMain);
         document.querySelector('#activities').removeAttribute('style');
+        document.querySelector('#totals').removeAttribute('style');
         (document.querySelector('#activities').lastChild as HTMLDivElement).setAttribute('style', 'margin-top: 8px');
-    }
+    };
 
-    const main = document.querySelector('main');
-    if (main.childElementCount > 0) {
-        (document.querySelector('.msg') as HTMLElement).style.display = 'none';
-    } else (document.querySelector('.msg') as HTMLElement).style.display = 'block';
-
-    data.type = '';
     data.hours = '';
     data.publications = '';
     data.review = '';
     data.videos = '';
     data.studies = '';
     data.note = '';
+
+    const main = document.querySelector('main');
+    if (main.childElementCount > 0) {
+        (document.querySelector('.msg') as HTMLElement).style.display = 'none';
+    } else (document.querySelector('.msg') as HTMLElement).style.display = 'block';
 }
 
 export default getData;

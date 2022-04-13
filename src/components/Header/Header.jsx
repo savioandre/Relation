@@ -1,25 +1,71 @@
 import React, { useEffect } from "react";
 import ManageSettingsHeader from "../Modals/ManageSettings/ManageSettings";
 
+const month = () => {
+    let intoMonth = new Date().getMonth();
+    switch (intoMonth) {
+        case 0:
+            intoMonth = 'Janeiro';
+            break;
+        case 1:
+            intoMonth = 'Fevereiro';
+            break;
+        case 2:
+            intoMonth = 'Março';
+            break;
+        case 3:
+            intoMonth = 'Abril';
+            break;
+        case 4:
+            intoMonth = 'Maio';
+            break;
+        case 5:
+            intoMonth = 'Junho';
+            break;
+        case 6:
+            intoMonth = 'Julho';
+            break;
+        case 7:
+            intoMonth = 'Agosto';
+            break;
+        case 8:
+            intoMonth = 'Setembro';
+            break;
+        case 9:
+            intoMonth = 'Outubro';
+            break;
+        case 10:
+            intoMonth = 'Novembro';
+            break;
+        case 11:
+            intoMonth = 'Dezembro';
+            break;
+    }
+    return intoMonth;
+};
+
 const Header = () => {
+
     useEffect(() => {
         function open() {
             document.querySelector('.man_opts').addEventListener('click', () => {
                 document.querySelector('.man_head').style.display = 'grid';
                 document.querySelector('.man_opts').classList.add('on');
-                close()
-            })
-        }
-        open()
+                document.querySelector('.head_t.man_opts span svg').classList.add('anin');
+                close();
+            });
+        };
+        open();
 
         function close() {
             document.querySelector('.man_opts.on').addEventListener('click', () => {
                 document.querySelector('.man_opts .man_head').style.display = 'none';
                 document.querySelector('.man_opts').classList.remove('on');
-                open()
-            })
-        }
-    })
+                document.querySelector('.head_t.man_opts span svg').classList.remove('anin');
+                open();
+            });
+        };
+    });
     return (
         <header id="head" className="head">
             <div className="head_t" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
@@ -35,8 +81,11 @@ const Header = () => {
                 </div>
             </div>
             <div className="head_t">
-                <label id="sel_">
-                    <p className="txt_bas">Atividades do mês — Março</p>
+                <label id="sel_" className="l_in">
+                    <p className="txt_bas">Atividades do mês —</p>
+                    <span className="month_act txt_bas">
+                         {month()}
+                    </span>
                 </label>
             </div>
             <div className="head_t man_opts">
