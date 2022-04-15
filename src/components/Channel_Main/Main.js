@@ -14,15 +14,14 @@ const Main = () => {
             document.querySelector('form.name').setAttribute('style', 'display: none');
             document.querySelector('.mods').setAttribute('style', 'display: none');
             document.querySelector('.cookies').remove();
+            document.querySelector('form.name').remove();
 
-            const avatar = document.createElement('span');
-            const account = document.querySelector('.account.img');
-            avatar.classList.add('avatar');
-            avatar.classList.add('p_sel_pro');
-            avatar.setAttribute('id', localStorage.getItem('avatar'));
-            avatar.innerText = name.substr(0, 2).toUpperCase();
-            account.removeChild(account.children[0]);
-            account.appendChild(avatar);
+            const avatar = `<span class="avatar p_sel_pro" id=${localStorage.getItem('avatar')}>${name.substr(0, 2).toUpperCase()}</span>`;
+            const account = document.querySelectorAll('div.account.img');
+            account.forEach((banner) => {
+                banner.removeChild(banner.children[0]);
+                banner.innerHTML = avatar;
+            });
         };
     })
 
@@ -37,7 +36,7 @@ const Main = () => {
                     style={{ display: 'none', position: 'absolute', width: '100%', height: '100%', background: 'rgba(0, 0, 0, 0.5)', top: 0, right: 0 }}>
                 </div>
 
-                <main id="main_acts" style={{ position: 'absolute', right: 0, padding: '8px 8px 0', zIndex: -1 }}>
+                <main id="main_acts" style={{ position: 'absolute', top: '51px', right: 0, padding: '8px 8px 0', zIndex: -1 }}>
                     <div id='totals' style={{ display: 'none' }}>
                         <h1>Totais</h1>
                     </div>

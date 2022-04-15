@@ -1,0 +1,25 @@
+[aria-label] {
+    position: relative;
+}
+
+[aria-label]::after {
+    content: attr(aria-label);
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    left: 130%;
+    bottom: 10%;
+    border-radius: 5px;
+    pointer-events: none;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--pri);
+    background-color: var(--opt);
+    /* box-shadow: 0px 2px 3px 0px  rgba(56, 47, 112, 0.3) */
+}
+
+[aria-label]:hover::after {
+    display: block;
+}

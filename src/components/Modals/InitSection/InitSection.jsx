@@ -124,7 +124,6 @@ const InitSection = () => {
                         <label className="sel_pro" style={{ background: 'var(--pk)' }} htmlFor="pk">
                             <input type="radio" name="choose_r" id="pk" value="pk" />
                         </label>
-
                     </div>
 
                 </div>

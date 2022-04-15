@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import './LeftBar.css';
 
 const LeftBar = () => {
 
@@ -75,7 +76,7 @@ const LeftBar = () => {
                 </div>
 
                 <ul className="opt_bar">
-                    <li className="el active" style={{ justifyContent: 'center' }}>
+                    <li className="el active" style={{ justifyContent: 'center' }} aria-label="Início">
                         <span>
                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -86,7 +87,7 @@ const LeftBar = () => {
                         </span>
                         <p className="p_el on_el">Início</p>
                     </li>
-                    <li className="el" style={{ justifyContent: 'center' }}>
+                    <li className="el" style={{ justifyContent: 'center' }} aria-label="Estudos">
                         <span>
                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -97,7 +98,7 @@ const LeftBar = () => {
                         </span>
                         <p className="p_el on_el">Revisitas e Estudos</p>
                     </li>
-                    <li className="el" style={{ justifyContent: 'center' }}>
+                    <li className="el" style={{ justifyContent: 'center' }} aria-label="Programação">
                         <span>
                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -108,7 +109,7 @@ const LeftBar = () => {
                         </span>
                         <p className="p_el on_el">Programação</p>
                     </li>
-                    <li className="el" style={{ justifyContent: 'center' }}>
+                    <li className="el" style={{ justifyContent: 'center' }} aria-label="Totais">
                         <span>
                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -121,7 +122,7 @@ const LeftBar = () => {
                     </li>
                 </ul>
 
-                <div className="profile_">
+                <div className="profile_" aria-label="Perfil">
                     <div className="account img">
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="14" cy="14" r="14" fill="#382F70" />

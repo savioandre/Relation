@@ -1,6 +1,7 @@
 function getData() {
     let data = {
         type: (document.querySelector('._main form select') as HTMLSelectElement).value,
+        date: (document.querySelector('#date') as HTMLSelectElement).value,
         hours: (document.querySelector('#hours') as HTMLInputElement).value,
         publications: (document.querySelector('#publics') as HTMLInputElement).value,
         review: (document.querySelector('#revisits') as HTMLInputElement).value,
@@ -8,6 +9,7 @@ function getData() {
         studies: (document.querySelector('#study') as HTMLInputElement).value,
         note: (document.querySelector('#note') as HTMLTextAreaElement).value,
     };
+    // #d7b55d; #d75d8a; #8d9ff2
 
     if (data.hours.length === 0 &&
         data.publications.length === 0 &&
@@ -17,27 +19,25 @@ function getData() {
     ) {
         alert('Preencha pelo menos um campo.')
     } else {
-
-        const gerDate = () => {
-            const date = new Date();
-            let day = date.getDate().toString();
-            let month = date.getMonth().toString();
-            const year = date.getFullYear().toString();
-
-            if (day.length === 1) {
-                day = `0${day}`
-            }
-
-            if (month.length === 1) {
-                month = `0${month}`
-            }
-
-            return `${day}/${month}/${year}`
-        };
+        let color = '#d7b55d';
+        switch (data.type) {
+            case 'Estudos':
+                color = '#8d9ff2'
+                break;
+            case 'Testemunho Informal':
+                color = '#d75d8a'
+                break;        
+            default:
+                color = '#d7b55d'
+                break;
+        }
 
         const body = `
     <div class="view">
-        <h1 class="txt_title">${data.type} - ${gerDate()}</h1>
+        <div class="t_tl">
+            <h1 class="txt_title" style="background: ${color}">${data.type}</h1>
+            <span class="t_note"> ${data.date}</span>
+        </div>
         <div class="main_activity">
             <p class="act">${data.hours} Horas</p>
             <p class="act">${data.publications} Publicações</p>

@@ -55,6 +55,7 @@ function alertTime() {
         avatar.innerText = name.substr(0, 2).toUpperCase();
         account.removeChild(account.children[0]);
         account.appendChild(avatar);
+        document.querySelector('form.name').remove();
 
         // Formating Date to show in notification
         if ((notify as HTMLInputElement).checked === true) {

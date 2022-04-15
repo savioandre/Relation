@@ -75,7 +75,7 @@ const Header = () => {
                             fill="#E2E1EB"></path>
                     </svg>
                 </span>
-                <div style={{position: 'absolute', margin: '0 0 0 28px', textAlign: 'left', userSelect: 'none'}}>
+                <div style={{position: 'absolute', margin: '0 0 0 28px', textAlign: 'left', userSelect: 'none', diplay: 'grid'}}>
                     <p className="txt_logo">Relation App</p>
                     <a href='https://github.com/savioandre/Relation' style= {{fontSize: '1rem', display: 'block', color: 'var(--opt)', fontWeight: 700}} target='_blank' rel='noreferrer'>Version beta 1.0</a>
                 </div>

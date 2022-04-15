@@ -1,5 +1,5 @@
-#profile {
-    background: var(--bac);
-    border-radius: 5px;
-    padding: 8px;
+.pre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

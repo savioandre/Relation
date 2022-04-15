@@ -14,10 +14,12 @@ const ModalMain = () => {
             document.querySelector('.mods').setAttribute('style', 'align-items: center');
         });
 
-        const close = document.querySelectorAll('._head span.close')
+        const close = document.querySelectorAll('._head span.close');
         close.forEach((close) => {
+            close.setAttribute('aria-label', 'Fechar');
             close.addEventListener('click', () => {
                 close.closest('.mods').style.display = "none";
+                close.closest('.mod').setAttribute('style', 'display: none');
             });
         })
 

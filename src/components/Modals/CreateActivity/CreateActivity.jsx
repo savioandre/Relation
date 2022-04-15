@@ -1,6 +1,20 @@
 import React from 'react';
 import getData from '../../../data/data.ts';
 
+const date = new Date();
+let day = date.getDate().toString();
+let month = date.getMonth();
+const year = date.getFullYear().toString();
+
+if (day.length === 1) {
+    day = `0${day}`
+}
+
+if (month.toString().length === 1) {
+    const forDate = parseInt(month + 1);
+    month = `0${forDate}`;
+}
+
 const CreateActivity = () => {
     return (
         <div className='mod activity' style={{ display: 'none' }} >
@@ -83,15 +97,26 @@ const CreateActivity = () => {
 
                     </label>
 
-                    <button type='submit' id='ok' className='btn' onClick={getData}>
-                        <span className='txt_btn'>Ok</span>
-                        <span>
-                            <svg width='16' height='12' viewBox='0 0 16 12' fill='none'
-                                xmlns='http://www.w3.org/2000/svg'>
-                                <path d='M1 5.5L5.5 10L14.5 1' stroke='#F1F1F1' strokeWidth='2' />
-                            </svg>
-                        </span>
-                    </button>
+                    <div className="inp">
+                        <label htmlFor="date">
+                            <input type='date'
+                                className='s_in txt_main'
+                                name='date' id='date'                                
+                                min={`${year}-${month}-01`}
+                                max={`${year}-${month}-30`}
+                                defaultValue={`${year}-${month}-${day}`}/>
+                        </label>
+                        <button type='submit' id='ok' className='btn' onClick={getData}>
+                            <span className='txt_btn'>Ok</span>
+                            <span>
+                                <svg width='16' height='12' viewBox='0 0 16 12' fill='none'
+                                    xmlns='http://www.w3.org/2000/svg'>
+                                    <path d='M1 5.5L5.5 10L14.5 1' stroke='#F1F1F1' strokeWidth='2' />
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+
                 </form>
             </div>
         </div>
