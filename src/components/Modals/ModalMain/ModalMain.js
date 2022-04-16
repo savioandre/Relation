@@ -29,7 +29,7 @@ const ModalMain = () => {
             });
         });
 
-        let input = document.querySelectorAll('.inp .it.on input');
+        let input = document.querySelectorAll('label.inp .it.on input');
 
         document.querySelectorAll('.it').forEach((it) => {
             it.addEventListener('click', () => {
@@ -59,15 +59,14 @@ const ModalMain = () => {
                     if (val.length === 3) {
                         document.querySelector('p.s_in').innerHTML = format0;
                     } else document.querySelector('p.s_in').innerHTML = format;
-                });
-
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        input.forEach((a) => { a.style.opacity = 0 });
-                    };
-                });
+                });                
             })
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    input.forEach((a) => { a.style.opacity = 0 });
+                };
+            });
         });
 
         const btn = document.querySelectorAll('form')

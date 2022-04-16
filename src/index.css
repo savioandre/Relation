@@ -104,10 +104,16 @@ button {
 }
 
 #main_acts {
-  display: grid;
   gap: 8px;
   padding: 8px 8px 0;
-  left: 64px;
+  left: 66px;
+}
+
+.total_activity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 ._head {
@@ -165,7 +171,8 @@ label .txt_title {
   text-align: center;
 }
 
-.inp, .t_tl {
+.inp,
+.t_tl {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -209,7 +216,9 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
-form {
+form,
+#main_acts,
+#total_acts {
   display: flex;
   flex-direction: column;
 }
@@ -244,6 +253,7 @@ form {
   right: 24px;
   bottom: 24px;
   color: #f1f1f1;
+  font-weight: 500;
 }
 
 /* Modais */
@@ -634,7 +644,7 @@ span.def_slider:before {
 span.close,
 .profile_,
 .btn._act,
-.man_opts span, 
+.man_opts span,
 button {
   cursor: pointer;
 }
@@ -678,7 +688,11 @@ p.pro_name {
 
   input.s_in,
   textarea {
-    width: 100%;
+    width: fit-content;
+  }
+
+  label.inp {
+    padding: var(--pad) 0;
   }
 }
 
@@ -696,6 +710,9 @@ p.pro_name {
   main#main_acts {
     position: static;
     left: 0;
+    bottom: 64px;
+    overflow: auto;
+    padding: 8px;
   }
 
   .left_bar {
@@ -703,6 +720,7 @@ p.pro_name {
     bottom: 0;
     max-width: 100%;
     width: 100%;
+    border-top: 1px solid #cccad7;
   }
 
   .btn_open_bar {
@@ -722,7 +740,7 @@ p.pro_name {
     bottom: 80px;
   }
 
-  .head_t .txt_logo {
+  header .head_t div {
     display: none;
   }
 }

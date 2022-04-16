@@ -1,48 +1,6 @@
 import React, { useEffect } from "react";
 import ManageSettingsHeader from "../Modals/ManageSettings/ManageSettings";
-
-const month = () => {
-    let intoMonth = new Date().getMonth();
-    switch (intoMonth) {
-        case 0:
-            intoMonth = 'Janeiro';
-            break;
-        case 1:
-            intoMonth = 'Fevereiro';
-            break;
-        case 2:
-            intoMonth = 'Março';
-            break;
-        case 3:
-            intoMonth = 'Abril';
-            break;
-        case 4:
-            intoMonth = 'Maio';
-            break;
-        case 5:
-            intoMonth = 'Junho';
-            break;
-        case 6:
-            intoMonth = 'Julho';
-            break;
-        case 7:
-            intoMonth = 'Agosto';
-            break;
-        case 8:
-            intoMonth = 'Setembro';
-            break;
-        case 9:
-            intoMonth = 'Outubro';
-            break;
-        case 10:
-            intoMonth = 'Novembro';
-            break;
-        case 11:
-            intoMonth = 'Dezembro';
-            break;
-    }
-    return intoMonth;
-};
+import total from '../../data/totalData.ts'
 
 const Header = () => {
 
@@ -84,7 +42,7 @@ const Header = () => {
                 <label id="sel_" className="l_in">
                     <p className="txt_bas">Atividades do mês —</p>
                     <span className="month_act txt_bas">
-                         {month()}
+                         {total.month()}
                     </span>
                 </label>
             </div>

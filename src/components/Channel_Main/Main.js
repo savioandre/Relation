@@ -3,6 +3,7 @@ import ChannelMain from '../Modals/ModalMain/ModalMain';
 import LeftBar from '../LeftBar/LeftBar';
 import Header from '../Header/Header';
 import '../Modals/InitSection/ImgProfile.css';
+import total from '../../data/totalData.ts';
 
 const Main = () => {
     useEffect(() => {
@@ -36,9 +37,25 @@ const Main = () => {
                     style={{ display: 'none', position: 'absolute', width: '100%', height: '100%', background: 'rgba(0, 0, 0, 0.5)', top: 0, right: 0 }}>
                 </div>
 
-                <main id="main_acts" style={{ position: 'absolute', top: '51px', right: 0, padding: '8px 8px 0', zIndex: -1 }}>
+                <main id="main_acts" style={{ position: 'absolute', top: '51px', right: 0, padding: '8px', zIndex: -1 }}>
                     <div id='totals' style={{ display: 'none' }}>
                         <h1>Totais</h1>
+                        <div>
+                            <div className="view">
+                                <div className="t_tl">
+                                    <h1 className="txt_title" style={{ background: '#6cce7a' }}>Total de&nbsp;
+                                        {total.month()}
+                                    </h1>
+                                </div>
+                                <div className="total_activity">
+                                    <p className="act">Horas</p>
+                                    <p className="act">Publicações</p>
+                                    <p className="act">Revisitas</p>
+                                    <p className="act">Vídeos</p>
+                                    <p className="act">Estudos</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div id='activities' style={{ display: 'none' }}>
                         <h1>Atividades</h1>

@@ -9,7 +9,6 @@ function getData() {
         studies: (document.querySelector('#study') as HTMLInputElement).value,
         note: (document.querySelector('#note') as HTMLTextAreaElement).value,
     };
-    // #d7b55d; #d75d8a; #8d9ff2
 
     if (data.hours.length === 0 &&
         data.publications.length === 0 &&
@@ -26,17 +25,38 @@ function getData() {
                 break;
             case 'Testemunho Informal':
                 color = '#d75d8a'
-                break;        
+                break;
             default:
                 color = '#d7b55d'
                 break;
+        };
+        let formatNote = data.note;
+        let pto = ``;
+        if (window.innerWidth < 500) {
+            if (formatNote.length >= (window.innerWidth / 50)) {
+                pto = `...`
+            }
+            formatNote = `${formatNote.substring(0, parseInt(window.innerWidth / 50))}${pto}`;
+        } else if (window.innerWidth >= 500) {
+
+            if (formatNote.length >= (window.innerWidth / 18)) {
+                pto = `...`
+            }
+            formatNote = `${formatNote.substring(0, parseInt(window.innerWidth / 18))}${pto}`;
+        }
+
+        const utils = {
+            formatDate(date) {
+                const splittedDate = data.date.split("-");
+                return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;
+            }
         }
 
         const body = `
     <div class="view">
         <div class="t_tl">
             <h1 class="txt_title" style="background: ${color}">${data.type}</h1>
-            <span class="t_note"> ${data.date}</span>
+            <span class="t_note"> ${utils.formatDate()}</span>
         </div>
         <div class="main_activity">
             <p class="act">${data.hours} Horas</p>
@@ -46,7 +66,7 @@ function getData() {
             <p class="act">${data.studies} Estudos</p>
             <div class="note">
                 <p class="t_note">Anotação:</p>
-                <p class="act">${data.note}</p>
+                <p class="act" title="${data.note}">${formatNote}</p>
             </div>
         </div>
     </div>
@@ -79,6 +99,12 @@ function getData() {
     if (main.childElementCount > 0) {
         (document.querySelector('.msg') as HTMLElement).style.display = 'none';
     } else (document.querySelector('.msg') as HTMLElement).style.display = 'block';
+
+    document.querySelectorAll('#activities .view').forEach((vi) => {
+        vi.addEventListener('click', (e) => {
+            console.log(vi.children[1]);
+        })
+    })
 }
 
 export default getData;

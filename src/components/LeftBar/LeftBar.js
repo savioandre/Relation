@@ -41,7 +41,7 @@ const LeftBar = () => {
             const localInner = document.createElement('div');
             const localName = document.createElement('p');
             const localDesignation = document.createElement('p');
-            localName.classList.add('txt_main');
+            localName.classList.add('txt_title');
             localName.classList.add('on_el');
             localDesignation.classList.add('t_note');
             localDesignation.classList.add('on_el');
@@ -87,7 +87,7 @@ const LeftBar = () => {
                         </span>
                         <p className="p_el on_el">Início</p>
                     </li>
-                    <li className="el" style={{ justifyContent: 'center' }} aria-label="Estudos">
+                    <li className="el" style={{ justifyContent: 'center' }} aria-label="Revisitas e Estudos">
                         <span>
                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -109,7 +109,7 @@ const LeftBar = () => {
                         </span>
                         <p className="p_el on_el">Programação</p>
                     </li>
-                    <li className="el" style={{ justifyContent: 'center' }} aria-label="Totais">
+                    <li className="el" style={{ justifyContent: 'center' }} aria-label="Dados Totais">
                         <span>
                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path

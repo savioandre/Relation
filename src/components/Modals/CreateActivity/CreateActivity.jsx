@@ -1,10 +1,10 @@
 import React from 'react';
 import getData from '../../../data/data.ts';
+import total from '../../../data/totalData.ts';
 
-const date = new Date();
-let day = date.getDate().toString();
-let month = date.getMonth();
-const year = date.getFullYear().toString();
+let day = total.exportDate.day;
+let month = total.exportDate.month;
+const year = total.exportDate.year;
 
 if (day.length === 1) {
     day = `0${day}`
@@ -101,10 +101,10 @@ const CreateActivity = () => {
                         <label htmlFor="date">
                             <input type='date'
                                 className='s_in txt_main'
-                                name='date' id='date'                                
+                                name='date' id='date'
                                 min={`${year}-${month}-01`}
-                                max={`${year}-${month}-30`}
-                                defaultValue={`${year}-${month}-${day}`}/>
+                                max={`${year}-${month}-${total.lastDay()}`}
+                                defaultValue={`${year}-${month}-${day}`} />
                         </label>
                         <button type='submit' id='ok' className='btn' onClick={getData}>
                             <span className='txt_btn'>Ok</span>
