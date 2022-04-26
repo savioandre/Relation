@@ -262,7 +262,8 @@ form,
   justify-content: center;
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
+  z-index: 10;
 }
 
 .mod_out {
@@ -645,8 +646,21 @@ span.close,
 .profile_,
 .btn._act,
 .man_opts span,
+.del_i,
 button {
   cursor: pointer;
+}
+
+.del_i {
+  margin-left: 8px;
+  padding: 4px;
+  border-radius: 5px;
+  background: #cccad7;
+}
+
+.d_in {
+  display: inline-flex;
+  align-items: center;
 }
 
 .profile_ {
@@ -740,7 +754,7 @@ p.pro_name {
     bottom: 80px;
   }
 
-  header .head_t div {
+  header .head_t>div {
     display: none;
   }
 }

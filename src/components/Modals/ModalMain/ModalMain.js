@@ -12,6 +12,7 @@ const ModalMain = () => {
             document.querySelector('.mod.activity').removeAttribute('style');
             document.querySelector('.mod_out').setAttribute('style', 'position: absolute;width: 100%;height: 100%');
             document.querySelector('.mods').setAttribute('style', 'align-items: center');
+            document.querySelector('html').style.overflow = 'hidden';
         });
 
         const close = document.querySelectorAll('._head span.close');
@@ -20,6 +21,7 @@ const ModalMain = () => {
             close.addEventListener('click', () => {
                 close.closest('.mods').style.display = "none";
                 close.closest('.mod').setAttribute('style', 'display: none');
+                document.querySelector('html').style.overflow = 'auto';
             });
         })
 
@@ -77,7 +79,7 @@ const ModalMain = () => {
         });
 
         document.querySelector('.mod_out').addEventListener('click', () => {
-            document.querySelector('.mods').style.display = 'none';
+            document.querySelector('._head span.close').click();
         });
 
         // createFile();

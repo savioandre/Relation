@@ -1,5 +1,5 @@
 import React from 'react';
-import getData from '../../../data/data.ts';
+import exporTotal from '../../../data/data.ts';
 import total from '../../../data/totalData.ts';
 
 let day = total.exportDate.day;
@@ -43,18 +43,18 @@ const CreateActivity = () => {
                     <label htmlFor='hours' className='inp' id='hour'>
                         <p className='txt_title'>Horas</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                            <p className='s_in txt_main' aria-placeholder='00:00'>00:00</p>
+                            <p className='s_in txt_main' >00:00</p>
                             <input type='number' className='s_in txt_main' name='hours' id='hours' maxLength='4'
-                                placeholder='00:00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
+                                placeholder='00:00' defaultValue='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
                         </div>
                     </label>
 
                     <label htmlFor='publics' className='inp' id='public'>
                         <p className='txt_title'>Publicações</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                            <p className='s_in txt_main' aria-placeholder='00'>00</p>
+                            <p className='s_in txt_main' >00</p>
                             <input type='number' className='s_in txt_main' name='publics' id='publics' maxLength='3'
-                                placeholder='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
+                                placeholder='00' defaultValue='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
                         </div>
 
                     </label>
@@ -62,9 +62,9 @@ const CreateActivity = () => {
                     <label htmlFor='revisits' className='inp' id='revisit'>
                         <p className='txt_title'>Revisitas</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                            <p className='s_in txt_main' aria-placeholder='00'>00</p>
+                            <p className='s_in txt_main' >00</p>
                             <input type='number' className='s_in txt_main' name='revisits' id='revisits' maxLength='3'
-                                placeholder='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
+                                placeholder='00' defaultValue='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
                         </div>
 
                     </label>
@@ -72,9 +72,9 @@ const CreateActivity = () => {
                     <label htmlFor='videos' className='inp'>
                         <p className='txt_title'>Vídeos</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                            <p className='s_in txt_main' aria-placeholder='00'>00</p>
+                            <p className='s_in txt_main' >00</p>
                             <input type='number' className='s_in txt_main' name='videos' id='videos' maxLength='3'
-                                placeholder='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
+                                placeholder='00' defaultValue='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
                         </div>
 
                     </label>
@@ -82,9 +82,9 @@ const CreateActivity = () => {
                     <label htmlFor='study' className='inp' id='studies'>
                         <p className='txt_title'>Estudos</p>
                         <div className='it' style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                            <p className='s_in txt_main' aria-placeholder='00'>00</p>
+                            <p className='s_in txt_main' >00</p>
                             <input type='number' className='s_in txt_main' name='study' id='study' maxLength='3'
-                                placeholder='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
+                                placeholder='00' defaultValue='00' style={{ position: 'absolute', placeSelf: 'end', opacity: 0 }} />
                         </div>
 
                     </label>
@@ -106,7 +106,7 @@ const CreateActivity = () => {
                                 max={`${year}-${month}-${total.lastDay()}`}
                                 defaultValue={`${year}-${month}-${day}`} />
                         </label>
-                        <button type='submit' id='ok' className='btn' onClick={getData}>
+                        <button type='submit' id='ok' className='btn' onClick={exporTotal.getData}>
                             <span className='txt_btn'>Ok</span>
                             <span>
                                 <svg width='16' height='12' viewBox='0 0 16 12' fill='none'
