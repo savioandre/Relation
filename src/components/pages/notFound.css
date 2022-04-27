@@ -1,0 +1,32 @@
+.lay_er {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+
+.er_not {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #382F70;
+}
+
+.h_er {
+    font-size: 8rem;
+    font-weight: 700;
+}
+
+.link {
+    color: #f1f1f1;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: inline-block;
+    padding: 8px;
+    text-decoration: none;
+    background: #382f70;
+    border-radius: 5px;
+    margin: 16px 0 0 0;
+}

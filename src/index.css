@@ -196,7 +196,10 @@ label.inp {
   outline: none;
 }
 
-input.s_in,
+.it input.s_in {
+  width: 100px;
+}
+
 textarea {
   width: 250px;
 }
@@ -325,7 +328,7 @@ form,
 
 .main_activity {
   display: grid;
-  grid: repeat(2, auto) / auto-flow auto;
+  grid: repeat(2, auto) / auto-flow 1fr;
 }
 
 .act {

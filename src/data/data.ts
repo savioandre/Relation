@@ -14,7 +14,11 @@ function getData() {
     };
     (document.querySelector('.close') as HTMLSpanElement).click();
 
-    if (data.hours === '00' && data.publications === '00' && data.review === '00' && data.videos === '00' && data.studies === '00') {
+    if (parseInt(data.hours) === 0 &&
+        parseInt(data.publications) === 0 &&
+        parseInt(data.review) === 0 &&
+        parseInt(data.videos) === 0 &&
+        parseInt(data.studies) === 0) {
         alert('Preencha pelo menos um campo.');
     } else {
 
@@ -57,13 +61,6 @@ function getData() {
         localStorage.setItem(total.month(), JSON.stringify(relation));
         document.location.reload(true);
     };
-
-    data.hours = '';
-    data.publications = '';
-    data.review = '';
-    data.videos = '';
-    data.studies = '';
-    data.note = '';
 
     if (JSON.parse(localStorage.getItem(total.month())).length >= 1) {
         (document.querySelector('.msg') as HTMLElement).style.display = 'none';
@@ -149,11 +146,34 @@ const Relation = () => {
 
 const totalSum = {
     hor() {
+        let total;
         var hor = 0;
+        var min = 0;
         for (var i = 0; i < relation.length; i++) {
-            hor += parseFloat(relation[i].horas);
+            let captHour = relation[i].horas.split(':');
+
+            const formatHours = {
+                hours: parseFloat(captHour[0]),
+                minutes: parseFloat(captHour[1]),
+            };
+
+            function totl() {
+                hor += formatHours.hours;
+                min += formatHours.minutes;
+
+                if (min >= 60) {
+                    hor += 1;
+                    min -= 60;
+                }
+                
+                return `${hor}:${min}`;
+            };
+            total = totl();
+
+            // return total();
         };
-        return hor;
+        return total;
+        console.log(total);
     },
     pub() {
         var pub = 0;

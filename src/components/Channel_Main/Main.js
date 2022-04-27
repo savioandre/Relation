@@ -7,19 +7,21 @@ import total from '../../data/totalData.ts';
 import exporTotal from '../../data/data.ts';
 
 const sumTotal = () => {
-    let sum = '00:00';
-    let hours = exporTotal.totalSum.hor().toString().replace(/[^\d]+/g, '');
-    if (hours.length === 1) {
-        sum = `0${hours}:00`;
-    } else if (hours.length === 2) {
-        sum = `${hours}:00`;
-    } else if (hours.length === 3) {
-        sum = `${hours.slice(0, 2)}:${hours.slice(2, 10)}0`;
-    } else if (hours.length === 4) {
-        sum = `${hours.slice(0, 2)}:${hours.slice(2, 10)}`;
-    };
+    // let sum = '00:00';
+    // let hours = exporTotal.totalSum.hor().toString().replace(/[^\d]+/g, '');
+    // if (hours.length === 1) {
+    //     sum = `0${hours}:00`;
+    // } else if (hours.length === 2) {
+    //     sum = `${hours}:00`;
+    // } else if (hours.length === 3) {
+    //     sum = `${hours.slice(0, 2)}:${hours.slice(2, 10)}0`;
+    // } else if (hours.length === 4) {
+    //     sum = `${hours.slice(0, 2)}:${hours.slice(2, 10)}`;
+    // };
+    let sum = exporTotal.totalSum.hor();
     return sum;
 }
+sumTotal();
 
 const Main = () => {
     useEffect(() => {
@@ -66,7 +68,7 @@ const Main = () => {
                                 </div>
                                 <div className="total_activity">
                                     <p className="act">
-                                        <span>{sumTotal()}&nbsp;</span>
+                                        <span>{exporTotal.totalSum.hor()}&nbsp;</span>
                                         Horas
                                     </p>
                                     <p className="act">
