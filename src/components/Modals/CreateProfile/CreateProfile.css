@@ -4,6 +4,17 @@
     align-items: center;
 }
 
-.loc_backup {
+.loc_backup input {
     cursor: pointer;
+}
+
+.loc_backup p, .loc_backup input {
+    width: 100%;
+    text-align: center;
+}
+
+.txt_sma {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--txt);
 }

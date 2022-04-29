@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import FileSaver from 'file-saver';
 import './CreateProfile.css';
 
 const name = localStorage.getItem('name');
@@ -16,7 +17,7 @@ const CreateProfile = () => {
         document.querySelector('#do_backup').addEventListener('click', () => {
             let exportBackup = JSON.stringify(localStorage);
             let blob = new Blob([exportBackup], { type: 'text/plain;charset=utf-8' });
-            saveAs(blob, 'Backup-relation' + '.json');
+            FileSaver.saveAs(blob, 'Backup-relation.json');
         })
 
         document.querySelector('form.set_profile').addEventListener('submit', (e) => {
@@ -101,14 +102,13 @@ const CreateProfile = () => {
                     </div>
                     <div>
                         <label className="loc_backup" htmlFor="do_backup">
-                            <p className="s_in txt_title">Fazer Backup</p>
-                            <small>Clique ou arraste o arquivo aqui!</small>
-                            <input type="button" name="do_backup" id="do_backup" style={{opacity: 0}}/>
+                            <input type="button" className="s_in txt_title" name="do_backup" id="do_backup" defaultValue="Fazer Backup" />
+                            <small className="txt_sma">Clique para baixar o arquivo de backup!</small>
                         </label>
                         <label className="loc_backup" htmlFor="backup">
                             <p className="s_in txt_title">Restaurar Backup</p>
-                            <small>Clique ou arraste o arquivo aqui!</small>
-                            <input type="file" name="backup" id="backup" style={{opacity: 0}}/>
+                            <small className="txt_sma">Clique ou arraste o arquivo de backup aqui!</small>
+                            <input type="file" name="backup" id="backup" style={{ opacity: 0 }} accept=".json"/>
                         </label>
                     </div>
                     <div className="sub">

@@ -109,6 +109,11 @@ button {
   left: 66px;
 }
 
+#activities {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .total_activity {
   display: flex;
   align-items: center;

@@ -86,7 +86,6 @@ function alertTime() {
                     window.open("http://localhost:3000/");
                 };
             } else {
-                console.log('date 1');
                 if (date > localStorage.getItem('day')) {
                     alert('Faltam ' + (parseInt(date) - parseInt(day)) + ' dias para entregar o relatório');
                 } else {
