@@ -3,3 +3,7 @@
     flex-direction: column;
     align-items: center;
 }
+
+.loc_backup {
+    cursor: pointer;
+}

@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import '../Modals/InitSection/ImgProfile.css';
 import total from '../../data/totalData.ts';
 import exporTotal from '../../data/data.ts';
+// import BackupDownload from '../Modals/BackupDowload/BackupDownload';
 
 const sumTotal = () => {
     // let sum = '00:00';
@@ -99,6 +100,8 @@ const Main = () => {
                 <div className="btns">
                     <button className="btn _act">+ Adicionar atividade</button>
                 </div>
+                {/* <BackupDownload /> */}
+                
             </div>
             <LeftBar />
         </>

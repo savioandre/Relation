@@ -136,6 +136,10 @@ button {
   font-size: var(--txt_basic_f);
 }
 
+.backup {
+  position: fixed;
+}
+
 .view {
   background: var(--opt);
   padding: 8px;
@@ -255,6 +259,11 @@ form,
   position: fixed;
   right: 24px;
   bottom: 24px;
+  color: #f1f1f1;
+  font-weight: 500;
+}
+
+._bac {
   color: #f1f1f1;
   font-weight: 500;
 }

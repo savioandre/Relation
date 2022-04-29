@@ -13,6 +13,12 @@ const CreateProfile = () => {
             document.querySelector('.mods').setAttribute('style', 'align-items: center');
         });
 
+        document.querySelector('#do_backup').addEventListener('click', () => {
+            let exportBackup = JSON.stringify(localStorage);
+            let blob = new Blob([exportBackup], { type: 'text/plain;charset=utf-8' });
+            saveAs(blob, 'Backup-relation' + '.json');
+        })
+
         document.querySelector('form.set_profile').addEventListener('submit', (e) => {
             e.preventDefault();
             const setName = document.querySelector('#set_profile input').value;
@@ -29,6 +35,19 @@ const CreateProfile = () => {
             } else {
                 document.querySelector('.pre p').innerHTML = localStorage.getItem('name');
             }
+        });
+
+        document.getElementById('backup').addEventListener('change', function () {
+            var file = new FileReader();
+            file.onload = () => {
+                const backup = file.result;
+                let n = JSON.parse(backup);
+                for (const [key, value] of Object.entries(n)) {
+                    localStorage.setItem(key, value);
+                };
+                document.location.reload();
+            }
+            file.readAsText(this.files[0]);
         });
     })
     return (
@@ -65,7 +84,7 @@ const CreateProfile = () => {
 
                 </div>
                 <form method="get" id="set_profile" className="set_profile" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                <div className='     _label'></div>
+                    <div className='     _label'></div>
                     <div style={{ width: '100%' }}>
                         <label htmlFor='name_pro' className='inp' id="set_name">
                             <p className='txt_title'>Mudar nome:</p>
@@ -78,6 +97,18 @@ const CreateProfile = () => {
                                 <option>Pioneiro Auxiliar</option>
                                 <option>Pioneiro Regular</option>
                             </select>
+                        </label>
+                    </div>
+                    <div>
+                        <label className="loc_backup" htmlFor="do_backup">
+                            <p className="s_in txt_title">Fazer Backup</p>
+                            <small>Clique ou arraste o arquivo aqui!</small>
+                            <input type="button" name="do_backup" id="do_backup" style={{opacity: 0}}/>
+                        </label>
+                        <label className="loc_backup" htmlFor="backup">
+                            <p className="s_in txt_title">Restaurar Backup</p>
+                            <small>Clique ou arraste o arquivo aqui!</small>
+                            <input type="file" name="backup" id="backup" style={{opacity: 0}}/>
                         </label>
                     </div>
                     <div className="sub">
