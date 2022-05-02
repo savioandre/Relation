@@ -38,18 +38,28 @@ const CreateProfile = () => {
             }
         });
 
-        document.getElementById('backup').addEventListener('change', function () {
-            var file = new FileReader();
-            file.onload = () => {
-                const backup = file.result;
-                let n = JSON.parse(backup);
-                for (const [key, value] of Object.entries(n)) {
-                    localStorage.setItem(key, value);
-                };
-                document.location.reload();
+        document.getElementById('backup').addEventListener('change', () => {
+            try {
+                var file = new FileReader();
+                file.onload = () => {
+                    const backup = file.result;
+                    let convertBackup = JSON.parse(backup);
+                    for (const [key, value] of Object.entries(convertBackup)) {
+                        localStorage.setItem(key, value);
+                    };
+                    document.location.reload();
+                }
+                file.readAsText(this.files[0]);
+            } catch (error) {
+                alert('Erro', error);
             }
-            file.readAsText(this.files[0]);
+
         });
+
+        document.getElementById('trash').addEventListener('click', () => {
+            localStorage.clear();
+            document.location.reload();
+        })
     })
     return (
         <div className='mod off' id='profile' style={{ display: 'grid', justifyItems: 'center' }}>
@@ -85,7 +95,7 @@ const CreateProfile = () => {
 
                 </div>
                 <form method="get" id="set_profile" className="set_profile" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                    <div className='     _label'></div>
+                    <div className='_label'></div>
                     <div style={{ width: '100%' }}>
                         <label htmlFor='name_pro' className='inp' id="set_name">
                             <p className='txt_title'>Mudar nome:</p>
@@ -100,7 +110,7 @@ const CreateProfile = () => {
                             </select>
                         </label>
                     </div>
-                    <div>
+                    <div className="btn_ger">
                         <label className="loc_backup" htmlFor="do_backup">
                             <input type="button" className="s_in txt_title" name="do_backup" id="do_backup" defaultValue="Fazer Backup" />
                             <small className="txt_sma">Clique para baixar o arquivo de backup!</small>
@@ -108,8 +118,11 @@ const CreateProfile = () => {
                         <label className="loc_backup" htmlFor="backup">
                             <p className="s_in txt_title">Restaurar Backup</p>
                             <small className="txt_sma">Clique ou arraste o arquivo de backup aqui!</small>
-                            <input type="file" name="backup" id="backup" style={{ opacity: 0 }} accept=".json"/>
+                            <input type="file" name="backup" id="backup" style={{ opacity: 0 }} accept=".json" />
                         </label>
+                        <button type='button' className='s_in' id='trash'>
+                            Apagar Dados
+                        </button>
                     </div>
                     <div className="sub">
                         <button type='submit' id='ok' className='btn'>

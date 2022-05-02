@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ManageSettingsHeader from "../Modals/ManageSettings/ManageSettings";
-import total from '../../data/totalData.ts'
+import total from '../../data/totalData.ts';
 
 const Header = () => {
 

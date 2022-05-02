@@ -1,0 +1,19 @@
+.relat_ {
+    width: 100%;
+    height: 130px;
+    resize: none;
+    word-break: break-all;
+}
+
+.total_more .inp label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.inp input[type='button'] {
+    cursor: pointer;
+    color: currentColor;
+    font-weight: 600;
+    margin-left: 4px;
+}

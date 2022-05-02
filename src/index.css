@@ -67,6 +67,11 @@ button {
   background: var(--pri);
 }
 
+.inp label input[type='button'] {
+  border: none;
+  background: none;
+}
+
 #n_step {
   border-radius: 5px;
   padding: 4px var(--pad);
@@ -226,6 +231,10 @@ textarea::-webkit-scrollbar {
 textarea::-webkit-scrollbar-thumb {
   background: var(--mod);
   border-radius: 10px;
+}
+
+#total {
+  position: relative;
 }
 
 form,

@@ -13,8 +13,27 @@
     text-align: center;
 }
 
+#backup {
+    position: absolute;
+    appearance: none;
+}
+
 .txt_sma {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--txt);
+}
+
+.btn_ger {
+    width: 100%;
+}
+
+#trash {
+    display: inline-flex;
+    justify-content: center;
+    color: #e45151;
+    font-weight: 600;
+    font-size: var(--txt_med_f);
+    width: 100%;
+    margin-top: 8px;
 }

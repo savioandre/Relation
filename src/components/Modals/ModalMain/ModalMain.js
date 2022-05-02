@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import CreateActivity from '../CreateActivity/CreateActivity.jsx';
 import InitSection from '../InitSection/InitSection.jsx';
 import Cookies from '../Cookies/Cookies';
-// import createFile from '../../../scripts/createFile';
 import RegisterNew from '../../Students/RegisterNew/Register.jsx';
 import CreateProfile from '../CreateProfile/CreateProfile.jsx';
+import ViewTotal from '../ViewTotal/ViewTotal.js';
+import AlertDelete from '../Alerts/AlertDelete.jsx';
 
 const ModalMain = () => {
     useEffect(() => {
@@ -38,8 +39,6 @@ const ModalMain = () => {
         document.querySelector('.mod_out').addEventListener('click', () => {
             document.querySelector('._head span.close').click();
         });
-
-        // createFile();
     })
     return (
         <div className="mods" style={{ position: 'absolute', width: '100%', height: '100%', background: `var(--mod)`, zIndex: 9 }}>
@@ -49,6 +48,8 @@ const ModalMain = () => {
             <CreateActivity />
             <RegisterNew />
             <CreateProfile />
+            <ViewTotal />
+            <AlertDelete />
         </div>
     )
 }

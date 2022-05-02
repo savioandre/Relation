@@ -24,7 +24,7 @@ function alertTime() {
                 i.parentElement.classList.add('ava_on');
                 img = `n_${img}`;
                 document.querySelector('.preview_user').setAttribute('id', img);
-                JSON.stringify(localStorage.setItem('avatar', img));
+                localStorage.setItem('avatar', img);
             };
         });
     });

@@ -1,0 +1,24 @@
+.mod.alert {
+    width: auto;
+}
+
+.mod.alert ._main p {
+    margin-bottom: 16px;
+}
+
+input[type='button'].btn_confirm {
+    color: #f1f1f1;
+    background: var(--pri);
+    font-weight: 600;
+    font-size: var(--txt_med_f);
+    padding: var(--pad);
+    border: none;
+    border-radius: 5px;
+}
+
+input[type='button'].btn_cancel {
+    color: #e45151;
+    font-weight: 600;
+    font-size: var(--txt_med_f);
+    border-radius: 5px;
+}

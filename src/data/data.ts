@@ -136,10 +136,24 @@ const Relation = () => {
 
     document.querySelectorAll('#activitie .del_i').forEach((del_i) => {
         del_i.addEventListener('click', () => {
-            const index = del_i.closest('div.main_act').getAttribute('data-index');
-            relation.splice(parseInt(index), 1);
-            localStorage.setItem(total.month(), JSON.stringify(relation));
-            document.location.reload();
+            document.querySelector('.mod.alert').removeAttribute('style');
+            document.querySelector('.mod_out').setAttribute('style', 'position: absolute;width: 100%;height: 100%');
+            document.querySelector('.mods').setAttribute('style', 'align-items: center');
+            document.querySelector('html').style.overflow = 'hidden';
+            document.querySelector('.btn_confirm').addEventListener('click', () => {
+                deleteAct();
+
+            });
+            document.querySelector('.btn_cancel').addEventListener('click', () => {
+                document.querySelector('.mod.alert .close').click();
+            });
+
+            function deleteAct() {
+                const index = del_i.closest('div.main_act').getAttribute('data-index');
+                relation.splice(parseInt(index), 1);
+                localStorage.setItem(total.month(), JSON.stringify(relation));
+                document.location.reload();
+            }
         });
     });
 };
@@ -202,14 +216,9 @@ const totalSum = {
         return est;
     },
     total() {
-        return `Meu relatório de ${total.month()}:
-${totalSum.hor()} Horas,
-${totalSum.pub()} Publicações,
-${totalSum.rev()} Revisitas,
-${totalSum.vid()} Vídeos,
-${totalSum.est()} Estudos.
-Atenciosamente, ${localStorage.getItem('name')}.`;
+        return `Meu relatório de ${total.month()}:\n${totalSum.hor()} Horas,\n${totalSum.pub()} Publicações,\n${totalSum.rev()} Revisitas,\n${totalSum.vid()} Vídeos,\n${totalSum.est()} Estudos.\nAtenciosamente, ${localStorage.getItem('name')}.`;
     }
 };
+
 const exporTotal = { getData, Relation, totalSum };
 export default exporTotal;
