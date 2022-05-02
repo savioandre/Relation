@@ -57,13 +57,6 @@ const LeftBar = () => {
             localInner.appendChild(localDesignation);
             document.querySelector('.profile_').appendChild(localInner);
         };
-
-        document.querySelectorAll('li.el').forEach((el) => {
-            el.addEventListener('click', () => {
-                document.querySelector('li.el.active').classList.remove('active');
-                el.classList.add('active');
-            });
-        });
     });
 
     return (

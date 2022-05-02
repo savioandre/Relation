@@ -132,7 +132,7 @@ const Relation = () => {
         (document.querySelector('#activities').lastChild as HTMLDivElement).setAttribute('style', 'margin-top: 8px');
 
         n += 1;
-    }
+    };
 
     document.querySelectorAll('#activitie .del_i').forEach((del_i) => {
         del_i.addEventListener('click', () => {
