@@ -31,11 +31,11 @@ const ViewTotal = () => {
 
         document.getElementById('save_img').addEventListener('click', () => {
             html2canvas(document.getElementById('l_relat_')).then(canvas => {
-                document.body.appendChild(canvas);
                 // var canvas = canvas;
                 // canvas.toBlob(function (blob) {
                 //     FileSaver.saveAs(blob, 'relatório.png');
                 // });
+                alert('Disponível apenas na próxima versão!');
             });
         });
 
