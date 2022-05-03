@@ -17,7 +17,7 @@ const CreateProfile = () => {
         document.querySelector('#do_backup').addEventListener('click', () => {
             let exportBackup = JSON.stringify(localStorage);
             let blob = new Blob([exportBackup], { type: 'text/plain;charset=utf-8' });
-            FileSaver.saveAs(blob, 'Backup-relation.json');
+            FileSaver.saveAs(blob, 'Backup-relation.relation');
         })
 
         document.querySelector('form.set_profile').addEventListener('submit', (e) => {
@@ -38,7 +38,7 @@ const CreateProfile = () => {
             }
         });
 
-        document.getElementById('backup').addEventListener('change', () => {
+        document.getElementById('backup').addEventListener('change', function () {
             try {
                 var file = new FileReader();
                 file.onload = () => {
@@ -53,7 +53,6 @@ const CreateProfile = () => {
             } catch (error) {
                 alert('Erro', error);
             }
-
         });
 
         document.getElementById('trash').addEventListener('click', () => {

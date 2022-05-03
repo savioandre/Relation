@@ -59,6 +59,7 @@ function getData() {
         });
 
         localStorage.setItem(total.month(), JSON.stringify(relation));
+        localStorage.setItem('Selected', total.month());
         document.location.reload(true);
     };
 

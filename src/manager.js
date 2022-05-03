@@ -32,14 +32,11 @@ export function setLeft() {
 
   if (url === 'https://app-relation.vercel.app/atividades/') {
     document.querySelector('ul.opt_bar').children[0].children[0].classList.add('active');
-  }
-  else if (url === 'https://app-relation.vercel.app/totais') {
+  } else if (url === 'https://app-relation.vercel.app/totais') {
     document.querySelector('ul.opt_bar').children[3].children[0].classList.add('active');
-  }
-  else if (url === 'https://app-relation.vercel.app/estudos/') {
+  } else if (url === 'https://app-relation.vercel.app/estudos/') {
     document.querySelector('ul.opt_bar').children[1].children[0].classList.add('active');
-  }
-  else if (url === 'https://app-relation.vercel.app/programacao/') {
+  } else if (url === 'https://app-relation.vercel.app/programacao/') {
     document.querySelector('ul.opt_bar').children[2].children[0].classList.add('active');
-  }
+  };
 };

@@ -74,7 +74,7 @@ const LeftBar = () => {
 
                 <ul className="opt_bar">
                     <Link to='/atividades'>
-                        <li className="el active" style={{ justifyContent: 'center' }} aria-label="Início">
+                        <li className="el" style={{ justifyContent: 'center' }} aria-label="Início">
 
                             <span>
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">

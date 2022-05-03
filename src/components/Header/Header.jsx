@@ -23,6 +23,11 @@ const Header = () => {
                 open();
             });
         };
+
+        const selected = localStorage.getItem('Selected');
+        if(selected.length > 0) {
+            
+        }
     });
     return (
         <header id="head" className="head">
@@ -33,16 +38,16 @@ const Header = () => {
                             fill="#E2E1EB"></path>
                     </svg>
                 </span>
-                <div style={{position: 'absolute', margin: '0 0 0 28px', textAlign: 'left', userSelect: 'none', diplay: 'grid'}}>
+                <div style={{ position: 'absolute', margin: '0 0 0 28px', textAlign: 'left', userSelect: 'none', diplay: 'grid' }}>
                     <p className="txt_logo">Relation App</p>
-                    <a href='https://github.com/savioandre/Relation' style= {{fontSize: '1rem', display: 'block', color: '#f1f1f1', fontWeight: 700}} target='_blank' rel='noreferrer'>Version beta 2.8.2</a>
+                    <a href='https://github.com/savioandre/Relation' style={{ fontSize: '1rem', display: 'block', color: '#f1f1f1', fontWeight: 700 }} target='_blank' rel='noreferrer'>Version beta 2.8.2</a>
                 </div>
             </div>
             <div className="head_t">
                 <label id="sel_" className="l_in">
                     <p className="txt_bas">Atividades do mês —</p>
                     <span className="month_act txt_bas">
-                         {total.month()}
+                        {total.month()}
                     </span>
                 </label>
             </div>
