@@ -23,11 +23,6 @@ const Header = () => {
                 open();
             });
         };
-
-        const selected = localStorage.getItem('Selected');
-        if(selected.length > 0) {
-            
-        }
     });
     return (
         <header id="head" className="head">
